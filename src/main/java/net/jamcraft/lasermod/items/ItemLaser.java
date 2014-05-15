@@ -1,5 +1,6 @@
 package net.jamcraft.lasermod.items;
 
+import net.jamcraft.lasermod.Lasers;
 import net.jamcraft.lasermod.TextureConstants;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -11,7 +12,8 @@ import net.minecraft.world.World;
 public class ItemLaser extends Item {
 	
 	public ItemLaser() {
-		setTextureName(TextureConstants.RESOURCE_CONTEXT + ":laser_basic");
+		this.setTextureName(TextureConstants.RESOURCE_CONTEXT + ":laser_basic");
+        this.setCreativeTab(Lasers.creativeTab);
 	}
 	
 	public ItemStack onItemRightClick(ItemStack item, World world, EntityPlayer player)
