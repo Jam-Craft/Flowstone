@@ -18,7 +18,7 @@ public class BlockLaser extends Block {
         super(Material.air);
         this.setLightLevel(1);
         this.setBlockUnbreakable();
-        this.setBlockBounds(0,0,0,0,0,0);
+        this.setBlockBounds(0, 0, 0, 0, 0, 0);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class BlockLaser extends Block {
 
     @Override
     public void updateTick(World world, int x, int y, int z, Random rand) {
-        world.setBlockToAir(x,y,z);
+        world.setBlockToAir(x, y, z);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class BlockLaser extends Block {
 
     @Override
     public MovingObjectPosition collisionRayTrace(World world, int x, int y, int z, Vec3 vector, Vec3 vector2) {
-        this.setBlockBounds(0F,0F,0F,0F,0F,0F);
+        this.setBlockBounds(0F, 0F, 0F, 0F, 0F, 0F);
         return super.collisionRayTrace(world, x, y, z, vector, vector2);
     }
 

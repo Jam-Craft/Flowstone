@@ -12,7 +12,6 @@ public class EntityLaser extends Entity {
 
     public EntityLaser(World world) {
         super(world);
-        //this.
     }
 
     @Override

@@ -20,30 +20,30 @@ import cpw.mods.fml.relauncher.SideOnly;
 @Mod(modid = ModConstants.MODID, name = ModConstants.NAME)
 public class Lasers {
 
-	public static CreativeTabs creativeTab = new CreativeTabs("Lasers") {
-		@Override
-		@SideOnly(Side.CLIENT)
-		public Item getTabIconItem() {
-			return Items.stick;
-		}
-	};
-	
-	@Mod.Instance(ModConstants.MODID)
-	public static Lasers instance;
-	
-	public static Logger logger;
+    public static CreativeTabs creativeTab = new CreativeTabs("Lasers") {
+        @Override
+        @SideOnly(Side.CLIENT)
+        public Item getTabIconItem() {
+            return Items.stick;
+        }
+    };
+
+    @Mod.Instance(ModConstants.MODID)
+    public static Lasers instance;
+
+    public static Logger logger;
 
     public static BlockLaser laserBlock;
-	
-	@Mod.EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
-		logger = event.getModLog();
+
+    @Mod.EventHandler
+    public void preInit(FMLPreInitializationEvent event) {
+        logger = event.getModLog();
         laserBlock = new BlockLaser();
-		LaserItems.init();
-	}
-	
-	public void init(FMLInitializationEvent event) {
+        LaserItems.init();
+    }
+
+    public void init(FMLInitializationEvent event) {
         GameRegistry.registerBlock(laserBlock, "laserblock");
-	}
-	
+    }
+
 }
