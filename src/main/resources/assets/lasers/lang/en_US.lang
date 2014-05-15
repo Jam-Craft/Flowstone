@@ -1,1 +1,3 @@
-itemGroup.Lasers: "Laser Pointers"
+itemGroup.Lasers=Laser Pointers
+item.sciDisk.name=Music Disk
+item.record.SciTroll.desc=SciRage
