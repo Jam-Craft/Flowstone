@@ -1,5 +1,16 @@
 package net.jamcraft.lasermod;
 
+import net.jamcraft.lasermod.blocks.BlockLaser;
+import net.jamcraft.lasermod.blocks.BlockLaserHolder;
+import net.jamcraft.lasermod.entities.EntityLaser;
+import net.jamcraft.lasermod.items.LaserItems;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+
+import org.apache.logging.log4j.Logger;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -8,14 +19,6 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.jamcraft.lasermod.blocks.BlockLaser;
-import net.jamcraft.lasermod.blocks.BlockLaserHolder;
-import net.jamcraft.lasermod.entities.EntityLaser;
-import net.jamcraft.lasermod.items.LaserItems;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import org.apache.logging.log4j.Logger;
 
 @Mod(modid = ModConstants.MODID, name = ModConstants.NAME)
 public class Lasers {
@@ -39,7 +42,6 @@ public class Lasers {
     public static BlockLaser laserBlock;
     public static BlockLaserHolder laserHolderBlock;
 
-    @SuppressWarnings("UnusedDeclaration")
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
@@ -48,14 +50,13 @@ public class Lasers {
         LaserItems.init();
     }
 
-    @SuppressWarnings("UnusedParameters")
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         GameRegistry.registerBlock(laserBlock, "laserblock");
         GameRegistry.registerBlock(laserHolderBlock, "apiblock");
         Lasers.proxy.init();
         EntityRegistry.registerGlobalEntityID(EntityLaser.class, "laser", EntityRegistry.findGlobalUniqueEntityId(), 0xFFFFFF, 0xFFFFFF);
-
+        
     }
 
 }
