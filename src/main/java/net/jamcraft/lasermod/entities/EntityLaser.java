@@ -31,7 +31,7 @@ public class EntityLaser extends Entity {
 
     public void onUpdate() {
 	super.onUpdate();
-	if (!this.worldObj.isRemote && this.laserLivingTime > 0) {
+	if (!this.worldObj.isRemote) {
 	    double doo = 3.0D;
 	    List nearby = this.worldObj.getEntitiesWithinAABBExcludingEntity(
 		    this,
@@ -43,8 +43,12 @@ public class EntityLaser extends Entity {
 		Entity entity = (Entity) nearby.get(i);
 		entity.setFire(5);
 	    }
-	    --this.laserLivingTime;
 	}
+	laserAge++;
+	if (this.laserAge >= 10)
+        {
+            this.setDead();
+        }
 
     }
 
@@ -55,12 +59,12 @@ public class EntityLaser extends Entity {
 
     @Override
     protected void readEntityFromNBT(NBTTagCompound var1) {
-
+	this.laserAge = var1.getShort("Age");
     }
 
     @Override
     protected void writeEntityToNBT(NBTTagCompound var1) {
-
+	var1.setShort("Age", (short)this.laserAge);
     }
 
 }
