@@ -2,6 +2,7 @@ package net.jamcraft.lasermod.items;
 
 import net.jamcraft.lasermod.Lasers;
 import net.jamcraft.lasermod.TextureConstants;
+import net.jamcraft.lasermod.entities.EntityLaser;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -26,7 +27,7 @@ public class ItemLaser extends Item {
         world.setBlock(mop.blockX, mop.blockY, mop.blockZ, Lasers.laserBlock);
         if (this.getUnlocalizedName().contains("explo"))
             world.createExplosion(null, mop.blockX, mop.blockY, mop.blockZ, 15, false);
-        else world.spawnParticle("slime", mop.blockX, mop.blockY + 1, mop.blockZ, 0D, 0D, 0D);
+        
         return item;
     }
 
