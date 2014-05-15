@@ -1,6 +1,7 @@
 package net.jamcraft.lasermod.items;
 
 import net.jamcraft.lasermod.TextureConstants;
+import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -22,7 +23,7 @@ public class ItemLaser extends Item {
 		MovingObjectPosition mop = world.rayTraceBlocks(source, foo, true);
 		if (mop == null) return item;
 		else {
-			world.spawnParticle("smoke", , par4, par6, par8, par10, par12);
+			
 			return item;
 		}
 		
