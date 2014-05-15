@@ -3,6 +3,7 @@ package net.jamcraft.lasermod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.jamcraft.lasermod.blocks.BlockLaser;
+import net.jamcraft.lasermod.blocks.BlockLaserHolder;
 import net.jamcraft.lasermod.items.LaserItems;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
@@ -34,16 +35,19 @@ public class Lasers {
     public static Logger logger;
 
     public static BlockLaser laserBlock;
+    public static BlockLaserHolder laserHolderBlock;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
         laserBlock = new BlockLaser();
+        laserHolderBlock = new BlockLaserHolder();
         LaserItems.init();
     }
 
     public void init(FMLInitializationEvent event) {
         GameRegistry.registerBlock(laserBlock, "laserblock");
+        GameRegistry.registerBlock(laserHolderBlock, "laserholderblock");
     }
 
 }
