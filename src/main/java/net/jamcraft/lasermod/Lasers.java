@@ -56,7 +56,7 @@ public class Lasers {
         GameRegistry.registerBlock(laserHolderBlock, "apiblock");
         Lasers.proxy.init();
         EntityRegistry.registerGlobalEntityID(EntityLaser.class, "laser", EntityRegistry.findGlobalUniqueEntityId(), 0xFFFFFF, 0xFFFFFF);
-        
+
     }
 
 }
