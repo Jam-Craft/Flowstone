@@ -10,5 +10,9 @@ import net.minecraft.block.material.Material;
 public class BlockLaser extends Block {
     protected BlockLaser(Material p_i45394_1_) {
         super(p_i45394_1_);
+        this.setLightLevel(1);
+        this.setBlockUnbreakable();
+        this.setBlockBounds(0,0,0,0,0,0);
+        this.
     }
 }
