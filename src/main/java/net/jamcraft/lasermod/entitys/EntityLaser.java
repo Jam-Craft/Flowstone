@@ -10,8 +10,9 @@ import net.minecraft.world.World;
  */
 public class EntityLaser extends Entity {
 
-    public EntityLaser(World par1World) {
-        super(par1World);
+    public EntityLaser(World world) {
+        super(world);
+        //this.
     }
 
     @Override
