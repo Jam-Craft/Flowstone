@@ -54,8 +54,6 @@ public class Lasers {
         GameRegistry.registerBlock(laserBlock, "laserblock");
         GameRegistry.registerBlock(laserHolderBlock, "apiblock");
         Lasers.proxy.init();
-        
-        
     }
 
 }
