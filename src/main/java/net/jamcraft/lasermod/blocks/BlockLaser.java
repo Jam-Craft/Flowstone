@@ -16,7 +16,7 @@ import java.util.Random;
 public class BlockLaser extends Block {
     public BlockLaser() {
         super(Material.air);
-        this.setLightLevel(1);
+        this.setLightLevel(0.5F);
         this.setBlockUnbreakable();
         this.setTickRandomly(true);
         this.setBlockBounds(0, 0, 0, 0, 0, 0);
@@ -34,7 +34,7 @@ public class BlockLaser extends Block {
 
     @Override
     public boolean isOpaqueCube() {
-        return true;
+        return false;
     }
 
     @Override
