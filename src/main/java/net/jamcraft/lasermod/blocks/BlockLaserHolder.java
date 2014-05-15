@@ -12,15 +12,14 @@ import net.minecraft.world.IBlockAccess;
  */
 public class BlockLaserHolder extends Block {
     public BlockLaserHolder() {
-        super(Material.iron);
+        super(Material.anvil);
         this.setCreativeTab(Lasers.creativeTab);
-        this.setHardness(5F);
         this.setBlockTextureName(ModConstants.MODID+":apiblock");
     }
 
     @Override
     public int getLightValue(IBlockAccess world, int x, int y, int z) {
-        return 1;
+        return super.getLightValue(world, x, y, z);
         //If laser is in and turned on then show light
     }
 
