@@ -24,6 +24,7 @@ public class ItemLaser extends Item {
 		MovingObjectPosition mop = world.rayTraceBlocks(source, foo, true);
 		if (mop == null) return item;
 		System.out.println("POOP");
+        world.setBlock(mop.blockX, mop.blockY, mop.blockZ, Lasers.laserBlock);
 		if (this.getUnlocalizedName().contains("explo")) world.createExplosion(null, mop.blockX, mop.blockY, mop.blockZ, 15, false);
 		else world.spawnParticle("slime", mop.blockX, mop.blockY + 1, mop.blockZ, 0D, 0D, 0D);
 		return item;

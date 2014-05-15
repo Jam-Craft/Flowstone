@@ -14,8 +14,8 @@ import java.util.Random;
  * @version 1.0
  */
 public class BlockLaser extends Block {
-    protected BlockLaser(Material material) {
-        super(material);
+    public BlockLaser() {
+        super(Material.air);
         this.setLightLevel(1);
         this.setBlockUnbreakable();
         this.setBlockBounds(0,0,0,0,0,0);
