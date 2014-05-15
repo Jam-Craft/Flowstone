@@ -1,7 +1,6 @@
 package net.jamcraft.lasermod.items;
 
 import net.jamcraft.lasermod.TextureConstants;
-import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -22,10 +21,10 @@ public class ItemLaser extends Item {
         Vec3 foo = source.addVector(dirL.xCoord*100, dirL.yCoord*100, dirL.zCoord*100);
 		MovingObjectPosition mop = world.rayTraceBlocks(source, foo, true);
 		if (mop == null) return item;
-		else {
-			
-			return item;
-		}
+		System.out.println("POOP");
+		if (this.getUnlocalizedName().contains("explo")) world.createExplosion(null, mop.blockX, mop.blockY, mop.blockZ, 15, false);
+		else world.spawnParticle("slime", mop.blockX, mop.blockY + 1, mop.blockZ, 0D, 0D, 0D);
+		return item;
 		
     }
 	
