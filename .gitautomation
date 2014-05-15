@@ -1,7 +1,7 @@
 auth: {username: hawks008, password: Funtime1}
 core: {remote: origin}
-push: {interval: 15, force: false}
-pull: {interval: 15, rebase: true}
+push: {interval: 5, force: false}
+pull: {interval: 5, rebase: true}
 commit: {interval: 15, message: Auto commit on %date%}
 event:
   enabled: true

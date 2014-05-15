@@ -18,7 +18,6 @@ public class BlockLaser extends Block {
         super(Material.air);
         this.setLightLevel(0.5F);
         this.setBlockUnbreakable();
-        this.setTickRandomly(true);
         this.setBlockBounds(0, 0, 0, 0, 0, 0);
     }
 
