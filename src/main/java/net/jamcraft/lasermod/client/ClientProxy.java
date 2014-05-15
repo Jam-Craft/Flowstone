@@ -9,6 +9,6 @@ public class ClientProxy extends CommonProxy {
     @Override
 	public void init()
 	{
-		
+		RenderingRegistry.registerEntityRenderingHandler(EntityLaser.class, new RenderLaser());
 	}
 }

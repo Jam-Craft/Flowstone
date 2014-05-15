@@ -5,6 +5,7 @@ import net.jamcraft.lasermod.blocks.BlockLaserHolder;
 import net.jamcraft.lasermod.entities.EntityLaser;
 import net.jamcraft.lasermod.items.LaserItems;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 
@@ -54,7 +55,7 @@ public class Lasers {
         GameRegistry.registerBlock(laserBlock, "laserblock");
         GameRegistry.registerBlock(laserHolderBlock, "apiblock");
         Lasers.proxy.init();
-        
+        EntityRegistry.registerGlobalEntityID(EntityLaser.class, "laser", EntityRegistry.findGlobalUniqueEntityId(), 0xFFFFFF, 0xFFFFFF);
         
     }
 
