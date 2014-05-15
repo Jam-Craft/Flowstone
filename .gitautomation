@@ -1,0 +1,10 @@
+auth: {username: hawks008, password: Funtime1}
+core: {remote: origin}
+push: {interval: 15, force: false}
+pull: {interval: 15, rebase: true}
+commit: {interval: 15, message: Auto commit on %date%}
+event:
+  enabled: true
+  timezone: Australia/Melbourne
+  start: {date: 05-15, time: '10:00'}
+  end: {date: 05-19, time: '10:00'}
