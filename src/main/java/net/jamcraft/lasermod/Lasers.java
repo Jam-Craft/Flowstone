@@ -45,6 +45,7 @@ public class Lasers {
         LaserItems.init();
     }
 
+    @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         GameRegistry.registerBlock(laserBlock, "laserblock");
         GameRegistry.registerBlock(laserHolderBlock, "apiblock");

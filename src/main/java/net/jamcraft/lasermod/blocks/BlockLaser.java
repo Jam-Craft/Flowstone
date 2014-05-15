@@ -18,6 +18,7 @@ public class BlockLaser extends Block {
         super(Material.air);
         this.setLightLevel(1);
         this.setBlockUnbreakable();
+        this.setTickRandomly(true);
         this.setBlockBounds(0, 0, 0, 0, 0, 0);
     }
 
@@ -39,6 +40,7 @@ public class BlockLaser extends Block {
     @Override
     public void updateTick(World world, int x, int y, int z, Random rand) {
         world.setBlockToAir(x, y, z);
+        System.out.println("DERP.");
     }
 
     @Override
