@@ -27,7 +27,6 @@ public class ItemLaser extends Item {
 		if (this.getUnlocalizedName().contains("explo")) world.createExplosion(null, mop.blockX, mop.blockY, mop.blockZ, 15, false);
 		else world.spawnParticle("slime", mop.blockX, mop.blockY + 1, mop.blockZ, 0D, 0D, 0D);
 		return item;
-		
     }
 	
 }
