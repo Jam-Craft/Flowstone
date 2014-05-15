@@ -21,6 +21,7 @@ public class ItemLaser extends Item {
         Vec3 source = world.getWorldVec3Pool().getVecFromPool(player.posX + dirL.xCoord, player.posZ + dirL.yCoord + player.eyeHeight, player.posZ + dirL.zCoord);
         Vec3 foo = source.addVector(dirL.xCoord * 100, dirL.yCoord * 100, dirL.zCoord * 100);
         MovingObjectPosition mop = world.rayTraceBlocks(source, foo, true);
+        Lasers.logger.debug(mop);
         System.out.println(mop);
         if (mop == null) return item;
         world.setBlock(mop.blockX, mop.blockY, mop.blockZ, Lasers.laserBlock);
