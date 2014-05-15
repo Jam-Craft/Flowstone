@@ -1,5 +1,6 @@
 package net.jamcraft.lasermod;
 
+import net.jamcraft.lasermod.items.LaserItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -31,6 +32,8 @@ public class Lasers {
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		logger = event.getModLog();
+		
+		LaserItems.init();
 	}
 	
 	public void init(FMLInitializationEvent event) {
