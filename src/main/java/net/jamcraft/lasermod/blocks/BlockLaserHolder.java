@@ -14,7 +14,6 @@ public class BlockLaserHolder extends Block {
     public BlockLaserHolder() {
         super(Material.anvil);
         this.setCreativeTab(Lasers.creativeTab);
-        this.setBlockName("apiBlock");
         this.setBlockTextureName(ModConstants.MODID+":apiblock");
     }
 
