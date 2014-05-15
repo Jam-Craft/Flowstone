@@ -2,7 +2,7 @@ package net.jamcraft.lasermod.blocks;
 
 import net.jamcraft.lasermod.Lasers;
 import net.jamcraft.lasermod.ModConstants;
-import net.minecraft.block.Block;
+import net.minecraft.block.Block;   
 import net.minecraft.block.material.Material;
 import net.minecraft.world.IBlockAccess;
 
