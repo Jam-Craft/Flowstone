@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "lasers",
+  "name": "§cL§ba§6s§2e§er§as",
+  "description": "PEW PEW PEW PEW PEW",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authors": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authors": ["hawks008", "MrComputerGhost"],
+  "credits": "",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
