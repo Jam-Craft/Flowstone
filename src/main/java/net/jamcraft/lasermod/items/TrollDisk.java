@@ -7,7 +7,7 @@ import net.minecraft.item.ItemRecord;
  * @version 1.0
  */
 public class TrollDisk extends ItemRecord {
-    protected TrollDisk(String name) {
-        super(name);
+    protected TrollDisk() {
+        super("SciTroll");
     }
 }
