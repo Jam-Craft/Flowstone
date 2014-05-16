@@ -35,9 +35,11 @@ public class ItemFlowstoneMixture extends ItemFood {
 	if (!w.isRemote)
         {
 	    Random rand = new Random();
-	    int i = rand.nextInt(25);
+	    int i = rand.nextInt(26);
+	    if (i == 26) p.addExperienceLevel(50);
+	    if (i ==  0) p.setFire(9999999);
 	    if (i == 25) w.createExplosion(p, p.posX, p.posY, p.posX, 5, false);
-	    if (i == 24) w.addWeatherEffect(new EntityLightningBolt());
+	    if (i == 24) w.addWeatherEffect(new EntityLightningBolt(w, p.posX, p.posY, p.posZ));
 	    else p.addPotionEffect(new PotionEffect(i, 6000, 0));
 	    
         }
