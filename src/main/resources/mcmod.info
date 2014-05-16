@@ -1,13 +1,13 @@
 [
 {
-  "modid": "KKC",
-  "name": "KKC",
-  "description": "${gold}KKaylium Conspiracy",
+  "modid": "flowstonemod",
+  "name": "FlowStone",
+  "description": "${gold}Flowstone Mod!",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authors": ["sci4me"],
+  "authors": ["MrComputerGhost, hawks008"],
   "credits": "",
   "logoFile": "",
   "screenshots": [],

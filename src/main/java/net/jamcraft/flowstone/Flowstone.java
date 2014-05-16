@@ -26,7 +26,7 @@ public class Flowstone {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
-        flowstoneMixture = new ItemFlowstoneMixture(0, false);
+        flowstoneMixture = new ItemFlowstoneMixture(0, 0, false);
         
     }
     

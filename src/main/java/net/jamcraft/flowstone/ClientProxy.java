@@ -1,5 +1,5 @@
 package net.jamcraft.flowstone;
 
-public class ClientProxy {
+public class ClientProxy extends CommonProxy {
 
 }
