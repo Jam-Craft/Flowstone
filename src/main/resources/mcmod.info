@@ -1,13 +1,13 @@
 [
 {
-  "modid": "lasers",
-  "name": "§cL§ba§6s§2e§er§as",
-  "description": "PEW PEW PEW PEW PEW",
+  "modid": "KKC",
+  "name": "KKC",
+  "description": "${gold}KKaylium Conspiracy",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authors": ["hawks008", "MrComputerGhost"],
+  "authors": ["sci4me"],
   "credits": "",
   "logoFile": "",
   "screenshots": [],
