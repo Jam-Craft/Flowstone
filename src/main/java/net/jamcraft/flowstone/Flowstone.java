@@ -1,6 +1,5 @@
 package net.jamcraft.flowstone;
 
-import net.jamcraft.lasermod.Lasers;
 import net.minecraft.item.Item;
 
 import org.apache.logging.log4j.Logger;
@@ -15,7 +14,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class Flowstone {
 
     @Mod.Instance(ModConstants.MODID)
-    public static Lasers instance;
+    public static Flowstone instance;
     
     public static Logger logger;
     
