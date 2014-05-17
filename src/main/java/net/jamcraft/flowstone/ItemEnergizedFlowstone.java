@@ -12,6 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
@@ -37,7 +38,9 @@ public class ItemEnergizedFlowstone extends ItemFood {
     {
 	if (!w.isRemote)
         {
-	    
+	    p.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 16000, 3));
+	    p.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 16000, 3));
+	    p.addPotionEffect(new PotionEffect(Potion.jump.id, 16000, 1));
         } else {
             super.onFoodEaten(par1ItemStack, w, p);
         }
