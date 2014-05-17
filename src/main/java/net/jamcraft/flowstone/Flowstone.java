@@ -29,14 +29,14 @@ public class Flowstone {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
-        flowstoneMixture = new ItemFlowstoneMixture(0, 0, false);
+        flowstoneMixture = new ItemFlowstoneMixture(5, 15, true);
         
     }
     
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         GameRegistry.registerItem(flowstoneMixture, "flowstoneMixture");
-        ChestGenHooks.getInfo("dungeonChest").addItem(new WeightedRandomChestContent(new ItemStack(flowstoneMixture), 1, 2, 1));
+        ChestGenHooks.getInfo("dungeonChest").addItem(new WeightedRandomChestContent(new ItemStack(flowstoneMixture), 3, 14, 50));
     }
     
 }
