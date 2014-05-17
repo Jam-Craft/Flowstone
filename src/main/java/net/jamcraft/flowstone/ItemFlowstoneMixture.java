@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.WorldInfo;
 import cpw.mods.fml.common.Loader;
@@ -50,14 +51,7 @@ public class ItemFlowstoneMixture extends ItemFood {
 	    if (i == 43) w.spawnEntityInWorld(new EntitySilverfish(w));
 	    if (i == 42) p.addToPlayerScore(p, 1);
 	    if (i == 41) p.capabilities.setPlayerWalkSpeed(0.1F);
-	    if (i == 40) {
-		Minecraft.getMinecraft().entityRenderer.deactivateShader();
-		Minecraft.getMinecraft().entityRenderer.activateNextShader();
-		Minecraft.getMinecraft().entityRenderer.activateNextShader();
-		Minecraft.getMinecraft().entityRenderer.activateNextShader();
-		Minecraft.getMinecraft().entityRenderer.activateNextShader();
-		Minecraft.getMinecraft().entityRenderer.activateNextShader();
-	    }
+	    if (i == 40 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, 0)); 
 	    if (i == 39 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, 0));
 	    if (i == 38 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, 0));
 	    if (i == 37 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, 0));
@@ -78,7 +72,26 @@ public class ItemFlowstoneMixture extends ItemFood {
 	    if (i == 23) w.createExplosion(p, p.posX, p.posY, p.posX, 5, true);
 	    if (i == 22) p.setPosition(p.posX += e, p.posY += e, p.posZ += e);
 	    if (i == 21) p.addExperienceLevel(4);
-	    if (i == 20) p.extinguish();    
+	    if (i == 20) p.extinguish();
+	    if (i == 19) p.capabilities.setPlayerWalkSpeed(0.01F);
+	    if (i == 18) p.cameraPitch = 99F;
+	    if (i == 17) w.difficultySetting = EnumDifficulty.HARD;
+	    if (i == 16) {
+		Minecraft.getMinecraft().entityRenderer.deactivateShader();
+		Minecraft.getMinecraft().entityRenderer.activateNextShader();
+		Minecraft.getMinecraft().entityRenderer.activateNextShader();
+		Minecraft.getMinecraft().entityRenderer.activateNextShader();
+		Minecraft.getMinecraft().entityRenderer.activateNextShader();
+		Minecraft.getMinecraft().entityRenderer.activateNextShader();
+	    }
+	    if (i == 15) p.cameraYaw = 0F;
+	    if (i == 14) p.eyeHeight = -5F;
+	    if (i == 13) {
+		p.setHealth(1);
+		p.hitByEntity(p);
+	    }
+	    if (i == 12) w.setBlockToAir((int)p.posX, (int)p.posY - 1,(int) p.posZ);
+	    if (i == 11) Minecraft.getMinecraft().entityRenderer.activateNextShader();
         } else {
             super.onFoodEaten(par1ItemStack, w, p);
         }
