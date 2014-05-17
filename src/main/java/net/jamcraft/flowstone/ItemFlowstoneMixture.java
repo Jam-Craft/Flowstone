@@ -58,11 +58,10 @@ public class ItemFlowstoneMixture extends ItemFood {
 		Minecraft.getMinecraft().entityRenderer.activateNextShader();
 		Minecraft.getMinecraft().entityRenderer.activateNextShader();
 	    }
-	    if (i == 39) w.createExplosion(p, p.posX, p.posY, p.posX, 5, true);
-	    if (i == 38) p.setPosition(p.posX += e, p.posY += e, p.posZ += e);
-	    if (i == 37) p.addExperienceLevel(4);
-	    if (i == 36) p.extinguish();
-	    if (i == 35 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, 0));
+	    if (i == 39 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, 0));
+	    if (i == 38 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, 0));
+	    if (i == 37 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, 0));
+	    if (i == 36 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, 0));
 	    if (i == 35 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, 0));
 	    if (i == 34 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, 0));
 	    if (i == 33) p.travelToDimension(0);
@@ -76,7 +75,10 @@ public class ItemFlowstoneMixture extends ItemFood {
 	    if (i == 00) p.setFire(9999999);
 	    if (i == 25) w.createExplosion(p, p.posX, p.posY, p.posX, 5, false);
 	    if (i == 24) w.addWeatherEffect(new EntityLightningBolt(w, p.posX, p.posY, p.posZ));
-	    else p.addPotionEffect(new PotionEffect(new PotionEffect(i, 6000, 0)));	    
+	    if (i == 23) w.createExplosion(p, p.posX, p.posY, p.posX, 5, true);
+	    if (i == 22) p.setPosition(p.posX += e, p.posY += e, p.posZ += e);
+	    if (i == 21) p.addExperienceLevel(4);
+	    if (i == 20) p.extinguish();    
         } else {
             super.onFoodEaten(par1ItemStack, w, p);
         }

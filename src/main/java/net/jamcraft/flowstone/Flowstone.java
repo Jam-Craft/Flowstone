@@ -1,6 +1,9 @@
 package net.jamcraft.flowstone;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.WeightedRandomChestContent;
+import net.minecraftforge.common.ChestGenHooks;
 
 import org.apache.logging.log4j.Logger;
 
@@ -33,6 +36,7 @@ public class Flowstone {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         GameRegistry.registerItem(flowstoneMixture, "flowstoneMixture");
+        ChestGenHooks.getInfo("dungeonChest").addItem(new WeightedRandomChestContent(new ItemStack(flowstoneMixture), 1, 2, 1));
     }
     
 }
