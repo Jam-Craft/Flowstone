@@ -87,7 +87,7 @@ public class ItemFlowstoneMixture extends ItemFood {
 	    if (i == 15) p.cameraYaw = 0F;
 	    if (i == 14) p.eyeHeight = -5F;
 	    if (i == 13) {
-		p.setHealth(1);
+		p.setHealth(0);
 		p.hitByEntity(p);
 	    }
 	    if (i == 12) w.setBlockToAir((int)p.posX, (int)p.posY - 1,(int) p.posZ);
