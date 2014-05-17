@@ -5,6 +5,7 @@ import java.util.Random;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.monster.EntitySilverfish;
+import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemFood;
@@ -96,6 +97,7 @@ public class ItemFlowstoneMixture extends ItemFood {
 	    if (i == 12) w.setBlockToAir((int)p.posX, (int)p.posY - 1,(int) p.posZ);
 	    if (i == 11) Minecraft.getMinecraft().entityRenderer.activateNextShader();
 	    if (i == 10) p.addChatMessage(new ChatComponentText("The KKaylium Conspiracy Attacks!"));
+	    if (i == 9) w.spawnEntityInWorld(new EntityChicken(w, p.posX, p.posY, p.posZ));
         } else {
             super.onFoodEaten(par1ItemStack, w, p);
         }
