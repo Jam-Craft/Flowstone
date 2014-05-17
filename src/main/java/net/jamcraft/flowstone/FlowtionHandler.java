@@ -11,9 +11,12 @@ public class FlowtionHandler {
     public void onLivingUpdate(LivingUpdateEvent event) {
 	Random rand = new Random();
 	
-	if (event.entityLiving.isPotionActive(Flowstone.energyFlowtion)) {
-	    
-	}
+	/**if (event.entityLiving.isPotionActive(Flowstone.energyFlowtion)) {
+	    event.entityLiving.setSprinting(true);
+	    event.entityLiving.setAbsorptionAmount(1);
+	    event.entityLiving.fireResistance = 45;
+	    event.entityLiving.setJumping(true);
+	}**/
     }
     
     

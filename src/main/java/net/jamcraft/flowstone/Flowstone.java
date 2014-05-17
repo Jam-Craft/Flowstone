@@ -48,7 +48,7 @@ public class Flowstone {
     
     public void registerFlowstions() {
 	energyFlowtion = new Flowtion(47, true, 0).setIconIndex(0, 0).setPotionName("flowtion.energy");
-	lightFlowtion = new Flowtion(48, true, 0).setIconIndex(0, 1).setPotionName("flowtion.light");	
+	lightFlowtion = new Flowtion(48, true, 0).setIconIndex(0, 1).setPotionName("flowtion.light");		
 	
 	Potion[] types = null;
 	Field[] fields = Potion.class.getDeclaredFields();
