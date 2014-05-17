@@ -24,7 +24,7 @@ public class ItemFlowstoneMixture extends ItemFood {
 
     public ItemFlowstoneMixture(int par1, float par2, boolean par3) {
 	super(par1, par2, par3);
-	this.setUnlocalizedName("flowstoneMixure");
+	this.setUnlocalizedName("flowstoneMixture");
 	this.setTextureName("flowstone:flowstone_mixture");
 	this.setAlwaysEdible();
     }
@@ -60,10 +60,10 @@ public class ItemFlowstoneMixture extends ItemFood {
 	    if (i == 36 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, 0));
 	    if (i == 35 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, 0));
 	    if (i == 34 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, 0));
-	    if (i == 33) p.travelToDimension(0);
+	    if (i == 33 && p.dimension != 0) p.travelToDimension(0);
 	    if (i == 32) p.addVelocity(0D, 1.0D, 0D);
 	    if (i == 31) p.setHealth(1F);
-	    if (i == 30) p.travelToDimension(1);
+	    if (i == 30 && p.dimension != 1) p.travelToDimension(1);
 	    if (i == 29) w.setWorldTime(12000);
 	    if (i == 28) p.fallDistance = 50 + e;
 	    if (i == 27) p.addExhaustion(50F);
