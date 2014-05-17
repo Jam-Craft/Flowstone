@@ -38,6 +38,7 @@ public class Flowstone {
         logger = event.getModLog();
         unstableFlowstone = new ItemFlowstoneMixture(5, 15, true);
         MinecraftForge.EVENT_BUS.register(new FlowtionHandler());
+        registerFlowtions();
     }
     
     @Mod.EventHandler
@@ -46,7 +47,7 @@ public class Flowstone {
         ChestGenHooks.getInfo("dungeonChest").addItem(new WeightedRandomChestContent(new ItemStack(unstableFlowstone), 4, 16, 75));
     }
     
-    public void registerFlowstions() {
+    public void registerFlowtions() {
 	energyFlowtion = new Flowtion(47, true, 0).setIconIndex(0, 0).setPotionName("flowtion.energy");
 	lightFlowtion = new Flowtion(48, true, 0).setIconIndex(0, 1).setPotionName("flowtion.light");		
 	
