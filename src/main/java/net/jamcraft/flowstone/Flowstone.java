@@ -36,7 +36,7 @@ public class Flowstone {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         GameRegistry.registerItem(flowstoneMixture, "flowstoneMixture");
-        ChestGenHooks.getInfo("dungeonChest").addItem(new WeightedRandomChestContent(new ItemStack(flowstoneMixture), 3, 14, 50));
+        ChestGenHooks.getInfo("dungeonChest").addItem(new WeightedRandomChestContent(new ItemStack(flowstoneMixture), 4, 16, 75));
     }
     
 }
