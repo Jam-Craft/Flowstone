@@ -27,6 +27,7 @@ public class ItemFlowstoneMixture extends ItemFood {
 	this.setUnlocalizedName("flowstoneMixture");
 	this.setTextureName("flowstone:flowstone_mixture");
 	this.setAlwaysEdible();
+	
     }
     
     @SideOnly(Side.CLIENT)
