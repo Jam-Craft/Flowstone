@@ -95,6 +95,7 @@ public class ItemFlowstoneMixture extends ItemFood {
 	    }
 	    if (i == 12) w.setBlockToAir((int)p.posX, (int)p.posY - 1,(int) p.posZ);
 	    if (i == 11) Minecraft.getMinecraft().entityRenderer.activateNextShader();
+	     
         } else {
             super.onFoodEaten(par1ItemStack, w, p);
         }
