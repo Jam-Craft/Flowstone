@@ -83,7 +83,7 @@ public class ItemFlowstoneMixture extends ItemFood {
 		Minecraft.getMinecraft().entityRenderer.activateNextShader();
 		Minecraft.getMinecraft().entityRenderer.activateNextShader();
 		Minecraft.getMinecraft().entityRenderer.activateNextShader();
-	    }
+	    } 
 	    if (i == 15) p.cameraYaw = 0F;
 	    if (i == 14) p.eyeHeight = -5F;
 	    if (i == 13) {
