@@ -1,9 +1,13 @@
 package net.jamcraft.flowstone;
 
+import java.lang.reflect.Field;
+
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
+import net.minecraftforge.common.MinecraftForge;
 
 import org.apache.logging.log4j.Logger;
 
@@ -24,19 +28,51 @@ public class Flowstone {
     @SidedProxy(clientSide = "net.jamcraft.flowstone.ClientProxy", serverSide = "net.jamcraft.flowstone.CommonProxy")
     public static CommonProxy proxy;
     
-    public static Item flowstoneMixture;
+    public static Item unstableFlowstone;
+    
+    public static Potion energyFlowstone;
+    public static Potion lightFlowstone;
     
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
-        flowstoneMixture = new ItemFlowstoneMixture(5, 15, true);
-        
+        unstableFlowstone = new ItemFlowstoneMixture(5, 15, true);
+        MinecraftForge.EVENT_BUS.register(new FlowtionHandler());
     }
     
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        GameRegistry.registerItem(flowstoneMixture, "flowstoneMixture");
-        ChestGenHooks.getInfo("dungeonChest").addItem(new WeightedRandomChestContent(new ItemStack(flowstoneMixture), 4, 16, 75));
+        GameRegistry.registerItem(unstableFlowstone, "unstableFlowstone");
+        ChestGenHooks.getInfo("dungeonChest").addItem(new WeightedRandomChestContent(new ItemStack(unstableFlowstone), 4, 16, 75));
     }
+    
+    public void registerFlowstions() {
+	Potion[] types = null;
+	Field[] fields = Potion.class.getDeclaredFields();
+	int amount = fields.length;
+	for (int currentField = 0; currentField < amount; ++currentField) {
+		Field currentFeild = fields[currentField];
+		currentFeild.setAccessible(true);
+
+		try {
+			if (currentFeild.getName().equals("potionTypes")
+					|| currentFeild.getName().equals("potionTypes")) {
+				Field error = Field.class.getDeclaredField("modifiers");
+				error.setAccessible(true);
+				error.setInt(currentFeild, currentFeild.getModifiers()
+						& -17);
+				types = (Potion[]) ((Potion[]) currentFeild
+						.get((Object) null));
+				Potion[] newPotionTypes = new Potion[256];
+				System.arraycopy(types, 0, newPotionTypes, 0,
+						types.length);
+				currentFeild.set((Object) null, newPotionTypes);
+			}
+		} catch (Exception e) {
+			System.err.println("Error. Please report this to MrComputerGhost!\nCrash Log: \n" + e);
+		}
+	}
+    }
+    
     
 }

@@ -25,7 +25,6 @@ public class ItemFlowstoneMixture extends ItemFood {
 
     public ItemFlowstoneMixture(int par1, float par2, boolean par3) {
 	super(par1, par2, par3);
-	this.setUnlocalizedName("flowstoneMixture");
 	this.setTextureName("flowstone:flowstone_mixture");
 	this.setAlwaysEdible();
 	
