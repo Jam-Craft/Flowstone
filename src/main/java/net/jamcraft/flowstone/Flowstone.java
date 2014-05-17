@@ -30,8 +30,8 @@ public class Flowstone {
     
     public static Item unstableFlowstone;
     
-    public static Potion energyFlowstone;
-    public static Potion lightFlowstone;
+    public static Potion energyFlowtion;
+    public static Potion lightFlowtion;
     
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -47,6 +47,9 @@ public class Flowstone {
     }
     
     public void registerFlowstions() {
+	energyFlowtion = new Flowtion(47, true, 0).setIconIndex(0, 0).setPotionName("flowtion.energy");
+	lightFlowtion = new Flowtion(48, true, 0).setIconIndex(0, 1).setPotionName("flowtion.light");	
+	
 	Potion[] types = null;
 	Field[] fields = Potion.class.getDeclaredFields();
 	int amount = fields.length;

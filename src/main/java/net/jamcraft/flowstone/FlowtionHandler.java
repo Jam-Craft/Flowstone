@@ -8,9 +8,12 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 public class FlowtionHandler {
 
     @SubscribeEvent
-    public void onLivingUpdate(LivingUpdateEvent lue) {
+    public void onLivingUpdate(LivingUpdateEvent event) {
 	Random rand = new Random();
 	
+	if (event.entityLiving.isPotionActive(Flowstone.energyFlowtion)) {
+	    
+	}
     }
     
     
