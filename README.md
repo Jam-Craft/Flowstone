@@ -1,5 +1,5 @@
 Flowstone Mod
-=============
+==============
 In this mod, you shall find in chests a special item. 
 This item shall change your life, or destroy it.
 It is, the Flowstone Mixture, a new drink.
