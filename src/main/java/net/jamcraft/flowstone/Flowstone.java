@@ -2,6 +2,7 @@ package net.jamcraft.flowstone;
 
 import java.lang.reflect.Field;
 
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -29,6 +30,8 @@ public class Flowstone {
     public static CommonProxy proxy;
     
     public static Item unstableFlowstone;
+    public static Item energizedFlowstone;
+    
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
@@ -39,6 +42,8 @@ public class Flowstone {
     public void init(FMLInitializationEvent event) {
         GameRegistry.registerItem(unstableFlowstone, "unstableFlowstone");
         ChestGenHooks.getInfo("dungeonChest").addItem(new WeightedRandomChestContent(new ItemStack(unstableFlowstone), 4, 16, 75));
+        GameRegistry.addSmelting(Items.rotten_flesh, new ItemStack(Items.leather, 1), 5);
+        GameRegistry.addSmelting(unstableFlowstone, new ItemStack(Items.gunpowder, 5), 10);
     }
     
     
