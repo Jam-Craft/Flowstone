@@ -81,15 +81,7 @@ public class ItemFlowstoneMixture extends ItemFood {
 	    if (i == 20) p.extinguish();
 	    if (i == 19) p.capabilities.setPlayerWalkSpeed(0.01F);
 	    if (i == 18) p.cameraPitch = 99F;
-	    if (i == 17) w.difficultySetting = EnumDifficulty.HARD;
-	    if (i == 16) {
-		Minecraft.getMinecraft().entityRenderer.deactivateShader();
-		Minecraft.getMinecraft().entityRenderer.activateNextShader();
-		Minecraft.getMinecraft().entityRenderer.activateNextShader();
-		Minecraft.getMinecraft().entityRenderer.activateNextShader();
-		Minecraft.getMinecraft().entityRenderer.activateNextShader();
-		Minecraft.getMinecraft().entityRenderer.activateNextShader();
-	    } 
+	    if (i == 17) w.difficultySetting = EnumDifficulty.HARD; 
 	    if (i == 15) p.cameraYaw = 0F;
 	    if (i == 14) p.eyeHeight = -5F;
 	    if (i == 13) {
@@ -101,16 +93,7 @@ public class ItemFlowstoneMixture extends ItemFood {
 	    if (i == 11) Minecraft.getMinecraft().entityRenderer.activateNextShader();
 	    if (i == 10) p.addChatMessage(new ChatComponentText("The KKaylium Conspiracy Attacks!"));
 	    if (i == 9) p.inventory.addItemStackToInventory(new ItemStack(Items.potato).setStackDisplayName("PotatOS"));
-	    if (i == 8) {
-		ResourceLocation rl = new ResourceLocation("shaders/post/wobble.json");
-		try{
-			Minecraft.getMinecraft().entityRenderer.theShaderGroup = new ShaderGroup(Minecraft.getMinecraft().getResourceManager(), Minecraft.getMinecraft().getFramebuffer(), rl);
-		}catch(JsonException je){
-			Flowstone.logger.error(String.format("Invalid Shader: %s:%s",rl.getResourceDomain(),rl.getResourcePath()));
-			je.printStackTrace();
-		}
-		Minecraft.getMinecraft().entityRenderer.theShaderGroup.createBindFramebuffers(Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight);
-	    }
+	    
 	    else w.createExplosion(null, p.posX, p.posY, p.posZ, 16, false);
         } else {
             super.onFoodEaten(par1ItemStack, w, p);
