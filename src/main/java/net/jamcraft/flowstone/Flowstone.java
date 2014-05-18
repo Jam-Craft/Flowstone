@@ -42,7 +42,7 @@ public class Flowstone {
     public void init(FMLInitializationEvent event) {
         GameRegistry.registerItem(unstableFlowstone, "unstableFlowstone");
         ChestGenHooks.getInfo("dungeonChest").addItem(new WeightedRandomChestContent(new ItemStack(unstableFlowstone), 4, 16, 75));
-        GameRegistry.addShapelessRecipe(output, params);
+        
         GameRegistry.addSmelting(Items.rotten_flesh, new ItemStack(Items.leather, 1), 5);
         GameRegistry.addSmelting(unstableFlowstone, new ItemStack(Items.gunpowder, 5), 10);
     }
