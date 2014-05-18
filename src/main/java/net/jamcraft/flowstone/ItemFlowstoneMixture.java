@@ -51,7 +51,6 @@ public class ItemFlowstoneMixture extends ItemFood {
 	    Random rand = new Random();
 	    int e = rand.nextInt(6);
 	    int i = rand.nextInt(45);
-	    i = 8;
 	    System.out.println(i + " , " + e);
 	    if (i == 45) worldinfo.setRaining(!worldinfo.isRaining());
 	    if (i == 43) w.spawnEntityInWorld(new EntitySilverfish(w));
@@ -93,8 +92,6 @@ public class ItemFlowstoneMixture extends ItemFood {
 	    if (i == 11) Minecraft.getMinecraft().entityRenderer.activateNextShader();
 	    if (i == 10) p.addChatMessage(new ChatComponentText("The KKaylium Conspiracy Attacks!"));
 	    if (i == 9) p.inventory.addItemStackToInventory(new ItemStack(Items.potato).setStackDisplayName("PotatOS"));
-	    
-	    else w.createExplosion(null, p.posX, p.posY, p.posZ, 16, false);
         } else {
             super.onFoodEaten(par1ItemStack, w, p);
         }

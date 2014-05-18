@@ -35,16 +35,17 @@ public class Flowstone {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
-        unstableFlowstone = new ItemFlowstoneMixture(5, 15, true);
-        energizedFlowstone = new ItemEnergizedFlowstone(5, 15, true);
+        unstableFlowstone = new ItemFlowstoneMixture(5, 15, true).setUnlocalizedName("unstableFlowstone");
+        energizedFlowstone = new ItemEnergizedFlowstone(5, 15, true).setUnlocalizedName("energizedFlowstone");
         
     }
     
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         GameRegistry.registerItem(unstableFlowstone, "unstableFlowstone");
-        ChestGenHooks.getInfo("dungeonChest").addItem(new WeightedRandomChestContent(new ItemStack(unstableFlowstone), 4, 16, 75));
-        
+        GameRegistry.registerItem(energizedFlowstone, "energizedFlowstone");
+        ChestGenHooks.getInfo("dungeonChest").addItem(new WeightedRandomChestContent(new ItemStack(unstableFlowstone), 1, 12, 75));
+        ChestGenHooks.getInfo("dungeonChest").addItem(new WeightedRandomChestContent(new ItemStack(energizedFlowstone), 1, 5, 10));
         GameRegistry.addSmelting(Items.rotten_flesh, new ItemStack(Items.leather, 1), 5);
         GameRegistry.addSmelting(unstableFlowstone, new ItemStack(Items.gunpowder, 5), 10);
     }
