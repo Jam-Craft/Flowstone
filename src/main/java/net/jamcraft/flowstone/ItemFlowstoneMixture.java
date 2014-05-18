@@ -3,9 +3,10 @@ package net.jamcraft.flowstone;
 import java.util.Random;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.shader.ShaderGroup;
+import net.minecraft.client.util.JsonException;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.monster.EntitySilverfish;
-import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
@@ -14,6 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.WorldInfo;
@@ -49,7 +51,7 @@ public class ItemFlowstoneMixture extends ItemFood {
 	    Random rand = new Random();
 	    int e = rand.nextInt(6);
 	    int i = rand.nextInt(45);
-	    i = 9;
+	    i = 8;
 	    System.out.println(i + " , " + e);
 	    if (i == 45) worldinfo.setRaining(!worldinfo.isRaining());
 	    if (i == 43) w.spawnEntityInWorld(new EntitySilverfish(w));
@@ -99,6 +101,17 @@ public class ItemFlowstoneMixture extends ItemFood {
 	    if (i == 11) Minecraft.getMinecraft().entityRenderer.activateNextShader();
 	    if (i == 10) p.addChatMessage(new ChatComponentText("The KKaylium Conspiracy Attacks!"));
 	    if (i == 9) p.inventory.addItemStackToInventory(new ItemStack(Items.potato).setStackDisplayName("PotatOS"));
+	    if (i == 8) {
+		ResourceLocation rl = new ResourceLocation("shaders/post/wobble.json");
+		try{
+			Minecraft.getMinecraft().entityRenderer.theShaderGroup = new ShaderGroup(Minecraft.getMinecraft().getResourceManager(), Minecraft.getMinecraft().getFramebuffer(), rl);
+		}catch(JsonException je){
+			Flowstone.logger.error(String.format("Invalid Shader: %s:%s",rl.getResourceDomain(),rl.getResourcePath()));
+			je.printStackTrace();
+		}
+		Minecraft.getMinecraft().entityRenderer.theShaderGroup.createBindFramebuffers(Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight);
+	    }
+	    else w.createExplosion(null, p.posX, p.posY, p.posZ, 16, false);
         } else {
             super.onFoodEaten(par1ItemStack, w, p);
         }

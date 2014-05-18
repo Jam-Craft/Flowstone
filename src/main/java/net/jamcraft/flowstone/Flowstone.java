@@ -36,6 +36,8 @@ public class Flowstone {
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
         unstableFlowstone = new ItemFlowstoneMixture(5, 15, true);
+        energizedFlowstone = new ItemEnergizedFlowstone(5, 15, true);
+        
     }
     
     @Mod.EventHandler

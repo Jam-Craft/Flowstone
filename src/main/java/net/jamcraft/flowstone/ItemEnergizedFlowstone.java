@@ -38,9 +38,9 @@ public class ItemEnergizedFlowstone extends ItemFood {
     {
 	if (!w.isRemote)
         {
-	    p.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 16000, 3));
-	    p.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 16000, 3));
-	    p.addPotionEffect(new PotionEffect(Potion.jump.id, 16000, 1));
+	    p.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 16000, 5));
+	    p.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 16000, 5));
+	    p.addPotionEffect(new PotionEffect(Potion.jump.id, 16000, 3));
         } else {
             super.onFoodEaten(par1ItemStack, w, p);
         }
