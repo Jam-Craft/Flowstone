@@ -3,4 +3,5 @@
 !lib/
 !build.gradle
 !README.md
+!capes/
 !.gitignore
