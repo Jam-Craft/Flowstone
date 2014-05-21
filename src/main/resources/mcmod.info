@@ -2,7 +2,7 @@
 {
   "modid": "flowstonemod",
   "name": "Flowstone",
-  "description": "${gold}Flowstone Mod!",
+  "description": "Flowstone Mod!",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",

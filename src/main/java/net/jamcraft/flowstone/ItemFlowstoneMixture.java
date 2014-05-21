@@ -1,10 +1,12 @@
 package net.jamcraft.flowstone;
 
+import java.util.List;
 import java.util.Random;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.shader.ShaderGroup;
 import net.minecraft.client.util.JsonException;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.monster.EntitySilverfish;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,7 +16,9 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
@@ -40,7 +44,7 @@ public class ItemFlowstoneMixture extends ItemFood {
 
     public EnumRarity getRarity(ItemStack par1ItemStack)
     {
-        return par1ItemStack.getItemDamage() == 0 ? EnumRarity.uncommon : EnumRarity.rare;
+        return EnumRarity.rare;
     }
     
     protected void onFoodEaten(ItemStack par1ItemStack, World w, EntityPlayer p)
@@ -53,7 +57,6 @@ public class ItemFlowstoneMixture extends ItemFood {
 	    int i = rand.nextInt(45);
 	    System.out.println(i + " , " + e);
 	    if (i == 45) worldinfo.setRaining(!worldinfo.isRaining());
-	    if (i == 43) w.spawnEntityInWorld(new EntitySilverfish(w));
 	    if (i == 42) p.addToPlayerScore(p, 1);
 	    if (i == 41) p.capabilities.setPlayerWalkSpeed(0.1F);
 	    if (i == 40 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, e)); 
@@ -97,5 +100,14 @@ public class ItemFlowstoneMixture extends ItemFood {
         }
         
     }
+    
+    
+    
+    public int getEntityLifespan(ItemStack itemStack, World world)
+    {
+        return 999999;
+    }
+
+
     
 }
