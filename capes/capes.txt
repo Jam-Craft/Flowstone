@@ -1,0 +1,3 @@
+poppypoppop:https://raw.githubusercontent.com/poppypoppop/FlowstoneEnergy/master/capes/cape.png
+mrcomputerghost:https://raw.githubusercontent.com/Jam-Craft/LASER/master/capes/compcape.png
+mitchellbrine:https://raw.githubusercontent.com/Jam-Craft/LASER/master/capes/mitchcape.png
