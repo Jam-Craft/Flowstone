@@ -19,7 +19,7 @@ import java.util.HashMap;
 
 public class CapeEventHandler {
 
-    private final String serverLocation = "https://raw.githubusercontent.com/poppypoppop/FlowstoneEnergy/master/capes/capes.txt";
+    private final String serverLocation = "https://raw.githubusercontent.com/Jam-Craft/LASER/master/capes/capes.txt";
     private final int timeout = 1000;
 
     private static final Graphics TEST_GRAPHICS = new BufferedImage(128, 128, BufferedImage.TYPE_INT_RGB).getGraphics();
@@ -31,109 +31,107 @@ public class CapeEventHandler {
     public static CapeEventHandler instance;
 
     public CapeEventHandler() {
-        buildCloakURLDatabase();
-        instance = this;
+	buildCloakURLDatabase();
+	instance = this;
     }
 
     @SubscribeEvent
     public void onPreRenderSpecials(RenderPlayerEvent.Specials.Pre event) {
-        if (event.entityPlayer instanceof AbstractClientPlayer) {
-            AbstractClientPlayer abstractClientPlayer = (AbstractClientPlayer) event.entityPlayer;
+	if (event.entityPlayer instanceof AbstractClientPlayer) {
+	    AbstractClientPlayer abstractClientPlayer = (AbstractClientPlayer) event.entityPlayer;
 
-            if (!capePlayers.contains(abstractClientPlayer)) {
-                String cloakURL = cloaks.get(event.entityPlayer.getDisplayName().toLowerCase());
+	    if (!capePlayers.contains(abstractClientPlayer)) {
+		String cloakURL = cloaks.get(event.entityPlayer.getDisplayName().toLowerCase());
 
-                if (cloakURL == null) {
-                    return;
-                }
+		if (cloakURL == null) { return; }
 
-                capePlayers.add(abstractClientPlayer);
+		capePlayers.add(abstractClientPlayer);
 
-                textureUploaded = false;
-                new Thread(new CloakThread(abstractClientPlayer, cloakURL)).start();
-                event.renderCape = true;
-            }
-        }
+		textureUploaded = false;
+		new Thread(new CloakThread(abstractClientPlayer, cloakURL)).start();
+		event.renderCape = true;
+	    }
+	}
     }
 
     public void buildCloakURLDatabase() {
-        URL url;
-        try {
-            url = new URL(serverLocation);
-            URLConnection con = url.openConnection();
-            con.setConnectTimeout(timeout);
-            con.setReadTimeout(timeout);
-            InputStream io = con.getInputStream();
-            BufferedReader br = new BufferedReader(new InputStreamReader(io));
+	URL url;
+	try {
+	    url = new URL(serverLocation);
+	    URLConnection con = url.openConnection();
+	    con.setConnectTimeout(timeout);
+	    con.setReadTimeout(timeout);
+	    InputStream io = con.getInputStream();
+	    BufferedReader br = new BufferedReader(new InputStreamReader(io));
 
-            String str;
-            @SuppressWarnings("unused")
-            int linetracker = 1;
-            while ((str = br.readLine()) != null) {
-                if (!str.startsWith("--")) {
-                    if (str.contains(":")) {
-                        String nick = str.substring(0, str.indexOf(":"));
-                        String link = str.substring(str.indexOf(":") + 1);
-                        new Thread(new CloakPreload(link)).start();
-                        cloaks.put(nick, link);
-                    } else {
-                        //TConstruct.logger.error("[SkinLoader] Syntax error on line " + linetracker + ": " + str);
-                    }
-                }
-                linetracker++;
-            }
+	    String str;
+	    @SuppressWarnings("unused")
+	    int linetracker = 1;
+	    while ((str = br.readLine()) != null) {
+		if (!str.startsWith("--")) {
+		    if (str.contains(":")) {
+			String nick = str.substring(0, str.indexOf(":"));
+			String link = str.substring(str.indexOf(":") + 1);
+			new Thread(new CloakPreload(link)).start();
+			cloaks.put(nick, link);
+		    } else {
 
-            br.close();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		    }
+		}
+		linetracker++;
+	    }
+
+	    br.close();
+	} catch (MalformedURLException e) {
+	    e.printStackTrace();
+	} catch (IOException e) {
+	    e.printStackTrace();
+	}
     }
 
     private class CloakThread implements Runnable {
 
-        AbstractClientPlayer abstractClientPlayer;
-        String cloakURL;
+	AbstractClientPlayer abstractClientPlayer;
+	String cloakURL;
 
-        public CloakThread(AbstractClientPlayer player, String cloak) {
-            abstractClientPlayer = player;
-            cloakURL = cloak;
-        }
+	public CloakThread(AbstractClientPlayer player, String cloak) {
+	    abstractClientPlayer = player;
+	    cloakURL = cloak;
+	}
 
-        @Override
-        public void run() {
-            try {
-                Image cape = new ImageIcon(new URL(cloakURL)).getImage();
-                BufferedImage bo = new BufferedImage(cape.getWidth(null), cape.getHeight(null), BufferedImage.TYPE_INT_ARGB);
-                bo.getGraphics().drawImage(cape, 0, 0, null);
-                abstractClientPlayer.getTextureCape().setBufferedImage(bo);
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            }
-        }
+	@Override
+	public void run() {
+	    try {
+		Image cape = new ImageIcon(new URL(cloakURL)).getImage();
+		BufferedImage bo = new BufferedImage(cape.getWidth(null), cape.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+		bo.getGraphics().drawImage(cape, 0, 0, null);
+		abstractClientPlayer.getTextureCape().setBufferedImage(bo);
+	    } catch (MalformedURLException e) {
+		e.printStackTrace();
+	    }
+	}
     }
 
     private class CloakPreload implements Runnable {
-        String cloakURL;
+	String cloakURL;
 
-        public CloakPreload(String link) {
-            cloakURL = link;
-        }
+	public CloakPreload(String link) {
+	    cloakURL = link;
+	}
 
-        @Override
-        public void run() {
-            try {
-                TEST_GRAPHICS.drawImage(new ImageIcon(new URL(cloakURL)).getImage(), 0, 0, null);
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            }
-        }
+	@Override
+	public void run() {
+	    try {
+		TEST_GRAPHICS.drawImage(new ImageIcon(new URL(cloakURL)).getImage(), 0, 0, null);
+	    } catch (MalformedURLException e) {
+		e.printStackTrace();
+	    }
+	}
     }
 
     public void refreshCapes() {
-        cloaks.clear();
-        capePlayers.clear();
-        buildCloakURLDatabase();
+	cloaks.clear();
+	capePlayers.clear();
+	buildCloakURLDatabase();
     }
 }

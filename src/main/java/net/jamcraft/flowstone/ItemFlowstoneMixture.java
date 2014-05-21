@@ -1,14 +1,9 @@
 package net.jamcraft.flowstone;
 
-import java.util.List;
 import java.util.Random;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.shader.ShaderGroup;
-import net.minecraft.client.util.JsonException;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.EntityLightningBolt;
-import net.minecraft.entity.monster.EntitySilverfish;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
@@ -16,10 +11,7 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.WorldInfo;
@@ -33,24 +25,24 @@ public class ItemFlowstoneMixture extends ItemFood {
 	super(par1, par2, par3);
 	this.setTextureName("flowstone:flowstone_mixture");
 	this.setAlwaysEdible();
-	
+
     }
-    
+
     @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack par1ItemStack)
     {
-        return true;
+	return true;
     }
 
     public EnumRarity getRarity(ItemStack par1ItemStack)
     {
-        return EnumRarity.rare;
+	return EnumRarity.rare;
     }
-    
+
     protected void onFoodEaten(ItemStack par1ItemStack, World w, EntityPlayer p)
     {
 	if (!w.isRemote)
-        {
+	{
 	    WorldInfo worldinfo = MinecraftServer.getServer().worldServers[0].getWorldInfo();
 	    Random rand = new Random();
 	    int e = rand.nextInt(6);
@@ -59,7 +51,7 @@ public class ItemFlowstoneMixture extends ItemFood {
 	    if (i == 45) worldinfo.setRaining(!worldinfo.isRaining());
 	    if (i == 42) p.addToPlayerScore(p, 1);
 	    if (i == 41) p.capabilities.setPlayerWalkSpeed(0.1F);
-	    if (i == 40 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, e)); 
+	    if (i == 40 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, e));
 	    if (i == 39 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, e));
 	    if (i == 38 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, e));
 	    if (i == 37 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, e));
@@ -83,7 +75,7 @@ public class ItemFlowstoneMixture extends ItemFood {
 	    if (i == 20) p.extinguish();
 	    if (i == 19) p.capabilities.setPlayerWalkSpeed(0.01F);
 	    if (i == 18) p.cameraPitch = 99F;
-	    if (i == 17) w.difficultySetting = EnumDifficulty.HARD; 
+	    if (i == 17) w.difficultySetting = EnumDifficulty.HARD;
 	    if (i == 15) p.cameraYaw = 0F;
 	    if (i == 14) p.eyeHeight = -5F;
 	    if (i == 13) {
@@ -91,23 +83,19 @@ public class ItemFlowstoneMixture extends ItemFood {
 		p.hitByEntity(p);
 		p.attackEntityAsMob(p);
 	    }
-	    if (i == 12) w.setBlockToAir((int)p.posX, (int)p.posY - 1,(int) p.posZ);
+	    if (i == 12) w.setBlockToAir((int) p.posX, (int) p.posY - 1, (int) p.posZ);
 	    if (i == 11) Minecraft.getMinecraft().entityRenderer.activateNextShader();
 	    if (i == 10) p.addChatMessage(new ChatComponentText("The KKaylium Conspiracy Attacks!"));
 	    if (i == 9) p.inventory.addItemStackToInventory(new ItemStack(Items.potato).setStackDisplayName("PotatOS"));
-        } else {
-            super.onFoodEaten(par1ItemStack, w, p);
-        }
-        
+	} else {
+	    super.onFoodEaten(par1ItemStack, w, p);
+	}
+
     }
-    
-    
-    
+
     public int getEntityLifespan(ItemStack itemStack, World world)
     {
-        return 999999;
+	return 999999;
     }
 
-
-    
 }

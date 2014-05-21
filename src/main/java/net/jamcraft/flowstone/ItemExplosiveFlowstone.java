@@ -2,24 +2,13 @@ package net.jamcraft.flowstone;
 
 import java.util.Random;
 
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.Minecraft;
-import net.minecraft.entity.effect.EntityLightningBolt;
-import net.minecraft.entity.monster.EntitySilverfish;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.minecraft.world.storage.WorldInfo;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemExplosiveFlowstone extends ItemFood {
 
@@ -28,35 +17,35 @@ public class ItemExplosiveFlowstone extends ItemFood {
 	this.setTextureName("flowstone:flowstone_mixture");
 	this.setAlwaysEdible();
     }
-    
+
     public EnumRarity getRarity(ItemStack par1ItemStack)
     {
-        return EnumRarity.uncommon;
+	return EnumRarity.uncommon;
     }
-    
+
     @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack par1ItemStack)
     {
-        return true;
+	return true;
     }
-    
+
     protected void onFoodEaten(ItemStack par1ItemStack, World w, EntityPlayer p)
     {
 	if (!w.isRemote)
-        {
+	{
 	    Random rand = new Random();
 	    int e = rand.nextInt(6);
 	    if (e == 6) w.createExplosion(p, p.posX, p.posY, p.posZ, 15, true);
 	    if (e == 5) w.createExplosion(null, p.posX, p.posY, p.posZ, 5, false);
-	    if (e == 4) w.createExplosion(null, p.posX, p.posY - 5, p.posZ,15, true);
+	    if (e == 4) w.createExplosion(null, p.posX, p.posY - 5, p.posZ, 15, true);
 	    if (e == 3) w.createExplosion(p, p.posX, p.posY, p.posZ, 1, false);
 	    if (e == 2) w.createExplosion(null, p.posX, p.posY + 15, p.posZ, 15, true);
 	    if (e == 1) w.createExplosion(p, p.posX - 5, p.posY + 15, p.posZ + 5, 15, false);
 	    if (e == 0) w.createExplosion(null, p.posX, p.posY + 0, p.posZ, 1, true);
-        } else {
-            super.onFoodEaten(par1ItemStack, w, p);
-        }
-        
+	} else {
+	    super.onFoodEaten(par1ItemStack, w, p);
+	}
+
     }
 
 }
