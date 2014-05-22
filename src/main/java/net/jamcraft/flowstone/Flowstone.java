@@ -64,9 +64,8 @@ public class Flowstone {
 	GameRegistry.addSmelting(opFlowstone, new ItemStack(Items.golden_apple, 5, 1), 10);
     }
 
-    @Mod.EventHandler
+    @EventHandler
     public void load(FMLInitializationEvent event) {
-	if (!Loader.isModLoaded("flowstoneenergy")) MinecraftForge.EVENT_BUS.register(new CapeEventHandler());
     }
 
 }
