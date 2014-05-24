@@ -19,5 +19,7 @@ if you have glass bottles in your inventory.
 Downloads
 ========================================================
 Flowstone 0.1 (As submitted for ModJam): http://goo.gl/rQRyAy
+
 Flowstone 0.2 (Semi-recent): http://goo.gl/gzCofN
+
 Flowstone 0.3 (Latest): http://goo.gl/kwJz8C
