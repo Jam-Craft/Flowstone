@@ -10,6 +10,11 @@ Or, it could just refill your hunger :P.
 
 Unstable Flowstone Mixtures will most likely harm you.
 Energized Flowstone Mixtures will always be beneficial.
+Explosive Mixtures are self-explanatory.
+Mystery Flowstone Mixtures are mysterious.
+
+Flowstone extractors can be used on creepers to get explosive flowstone,
+if you have glass bottles in your inventory.
 ========================================================
 Downloads
 Flowstone 0.1 (As submitted for ModJam): http://goo.gl/rQRyAy
