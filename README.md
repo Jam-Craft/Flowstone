@@ -10,3 +10,8 @@ Or, it could just refill your hunger :P.
 
 Unstable Flowstone Mixtures will most likely harm you.
 Energized Flowstone Mixtures will always be beneficial.
+========================================================
+Downloads
+Flowstone 0.1 (As submitted for ModJam): http://goo.gl/rQRyAy
+Flowstone 0.2 (Semi-recent): http://goo.gl/gzCofN
+Flowstone 0.3 (Latest): http://goo.gl/kwJz8C
