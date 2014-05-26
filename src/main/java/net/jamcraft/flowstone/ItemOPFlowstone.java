@@ -3,6 +3,7 @@ package net.jamcraft.flowstone;
 import java.util.Random;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -31,7 +32,13 @@ public class ItemOPFlowstone extends ItemFood {
     {
 	return true;
     }
-
+    
+    @Override
+    public EnumAction getItemUseAction(ItemStack par1ItemStack)
+    {
+        return EnumAction.drink;
+    }
+    
     @Override
     public boolean isWolfsFavoriteMeat()
     {

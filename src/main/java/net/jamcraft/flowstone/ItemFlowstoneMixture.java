@@ -6,6 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -38,6 +39,12 @@ public class ItemFlowstoneMixture extends ItemFood {
     {
 	return EnumRarity.rare;
     }
+    
+    @Override
+    public EnumAction getItemUseAction(ItemStack par1ItemStack)
+    {
+        return EnumAction.drink;
+    }
 
     protected void onFoodEaten(ItemStack par1ItemStack, World w, EntityPlayer p)
     {
@@ -51,13 +58,13 @@ public class ItemFlowstoneMixture extends ItemFood {
 	    if (i == 45) worldinfo.setRaining(!worldinfo.isRaining());
 	    if (i == 42) p.addToPlayerScore(p, 1);
 	    if (i == 41) p.capabilities.setPlayerWalkSpeed(0.1F);
-	    if (i == 40 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(36, 6000, e));
-	    if (i == 39 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(35, 6000, e));
-	    if (i == 38 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(34, 6000, e));
-	    if (i == 37 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(33, 6000, e));
-	    if (i == 36 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(32, 6000, e));
-	    if (i == 35 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(31, 6000, e));
-	    if (i == 34 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(30, 6000, e));
+	    if (i == 40 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, e));
+	    if (i == 39 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, e));
+	    if (i == 38 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, e));
+	    if (i == 37 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, e));
+	    if (i == 36 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, e));
+	    if (i == 35 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, e));
+	    if (i == 34 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(i, 6000, e));
 	    if (i == 33) p.inventory.dropAllItems();
 	    if (i == 32) p.attackEntityAsMob(p);
 	    if (i == 31) p.setHealth(1F);
