@@ -9,13 +9,13 @@ import net.minecraftforge.common.MinecraftForge;
 
 import org.apache.logging.log4j.Logger;
 
-import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
 
 @Mod(modid = ModConstants.MODID, name = ModConstants.NAME)
 public class Flowstone {
@@ -66,6 +66,9 @@ public class Flowstone {
 
     @EventHandler
     public void load(FMLInitializationEvent event) {
+	if (event.getSide() == Side.CLIENT) {
+            MinecraftForge.EVENT_BUS.register(new CapeEventHandler());
+        }
     }
 
 }
