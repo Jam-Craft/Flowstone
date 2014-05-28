@@ -25,10 +25,11 @@ public class ItemFlowstoneExtractor extends Item {
 
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity)
     {
-	if (entity instanceof EntityCreeper && player.inventory.hasItem(Items.glass_bottle)) {
+	if (entity instanceof EntityCreeper && player.inventory.hasItem(Items.glass_bottle) && this.getDamage(stack) != this.getMaxDamage()) {
 	    player.inventory.consumeInventoryItem(Items.glass_bottle);
 	    player.inventory.addItemStackToInventory(new ItemStack(Flowstone.explodingFlowstone));
 	    stack.damageItem(1, player);
+	    if (this.getDamage(stack) == 0) --stack.stackSize;
 	}
 	return true;
     }

@@ -6,6 +6,7 @@ import java.util.Random;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
@@ -56,7 +57,7 @@ public class ItemFlowstoneMixture extends ItemFood {
 	    int e = rand.nextInt(6);
 	    int i = rand.nextInt(45);
 	    System.out.println(i + " , " + e);
-	    if (i == 45) worldinfo.setRaining(!worldinfo.isRaining());
+	    if (i == 45) worldinfo.setRaining(true);
 	    if (i == 42) p.addToPlayerScore(p, 1);
 	    if (i == 41) p.capabilities.setPlayerWalkSpeed(0.1F);
 	    if (i == 40 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(36, 6000, e));
@@ -94,7 +95,11 @@ public class ItemFlowstoneMixture extends ItemFood {
 	    if (i == 12) w.setBlockToAir((int) p.posX, (int) p.posY - 1, (int) p.posZ);
 	    if (i == 11) Minecraft.getMinecraft().entityRenderer.activateNextShader();
 	    if (i == 10) p.addChatMessage(new ChatComponentText("The KKaylium Conspiracy Attacks!"));
-	    if (i == 9) p.inventory.addItemStackToInventory(new ItemStack(Items.potato).setStackDisplayName("PotatOS"));
+	    if (i == 9) p.inventory.addItemStackToInventory(new ItemStack(Items.potato, 64, 0).setStackDisplayName("PotatOS"));
+	    if (i == 8) w.setBlock((int)p.posX,  (int)p.posY,  (int)p.posZ, Blocks.diamond_block);
+	    if (i == 7) p.inventory.addItemStackToInventory(new ItemStack(Flowstone.opFlowstone).setStackDisplayName("Drink Me!"));
+	    if (i == 6) p.inventory.addItemStackToInventory(new ItemStack(Flowstone.trollFlowstone).setStackDisplayName("Drink Me!"));
+	    
 	} else {
 	    super.onFoodEaten(par1ItemStack, w, p);
 	}
