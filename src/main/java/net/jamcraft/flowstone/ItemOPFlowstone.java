@@ -2,6 +2,8 @@ package net.jamcraft.flowstone;
 
 import java.util.Random;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
@@ -32,13 +34,13 @@ public class ItemOPFlowstone extends ItemFood {
     {
 	return true;
     }
-    
+
     @Override
     public EnumAction getItemUseAction(ItemStack par1ItemStack)
     {
-        return EnumAction.drink;
+	return EnumAction.drink;
     }
-    
+
     @Override
     public boolean isWolfsFavoriteMeat()
     {
@@ -58,8 +60,8 @@ public class ItemOPFlowstone extends ItemFood {
 
 	    Random rand = new Random();
 	    int e = rand.nextInt(3);
-	    int i = rand.nextInt(127);
-	    if (i > 0) {
+	    int i = rand.nextInt(1);
+	    if (i == 1) {
 		p.addPotionEffect(new PotionEffect(Potion.regeneration.getId(), 6000 + e * e, e));
 		p.addPotionEffect(new PotionEffect(Potion.resistance.getId(), 6000 + e * e, e));
 		p.addPotionEffect(new PotionEffect(Potion.fireResistance.getId(), 6000 + e * e, e));
@@ -73,7 +75,8 @@ public class ItemOPFlowstone extends ItemFood {
 		p.addPotionEffect(new PotionEffect(22, 6000 + e * e, e));
 		p.addPotionEffect(new PotionEffect(23, 6000 + e * e, e));
 		p.addPotionEffect(new PotionEffect(21, 6000 + e * e, e));
-	    } else {
+	    }
+	    if (i == 0) {
 		p.addPotionEffect(new PotionEffect(Potion.wither.getId(), 6000 + e * e, e));
 		p.addPotionEffect(new PotionEffect(Potion.blindness.getId(), 6000 + e * e, e));
 		p.addPotionEffect(new PotionEffect(Potion.confusion.getId(), 6000 + e * e, e));
@@ -81,6 +84,13 @@ public class ItemOPFlowstone extends ItemFood {
 		p.addPotionEffect(new PotionEffect(Potion.harm.getId(), 6000 + e * e, e));
 		p.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 6000 + e * e, e));
 		p.addPotionEffect(new PotionEffect(Potion.weakness.getId(), 6000 + e * e, e));
+		int f = rand.nextInt(7);
+		EntityChicken ent = new EntityChicken(w);
+		ent.setCustomNameTag("MrComputerGhost");
+		w.createExplosion(ent, p.posX, p.posY, p.posZ, f, true);
+		p.inventory.dropAllItems();
+		p.setAir(22);
+		p.addScore(1);
 	    }
 	} else {
 	    super.onFoodEaten(par1ItemStack, w, p);

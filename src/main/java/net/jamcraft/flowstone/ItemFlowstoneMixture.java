@@ -97,8 +97,8 @@ public class ItemFlowstoneMixture extends ItemFood {
 	    if (i == 10) p.addChatMessage(new ChatComponentText("The KKaylium Conspiracy Attacks!"));
 	    if (i == 9) p.inventory.addItemStackToInventory(new ItemStack(Items.potato, 64, 0).setStackDisplayName("PotatOS"));
 	    if (i == 8) w.setBlock((int)p.posX,  (int)p.posY,  (int)p.posZ, Blocks.diamond_block);
-	    if (i == 7) p.inventory.addItemStackToInventory(new ItemStack(Flowstone.opFlowstone).setStackDisplayName("Drink Me!"));
-	    if (i == 6) p.inventory.addItemStackToInventory(new ItemStack(Flowstone.trollFlowstone).setStackDisplayName("Drink Me!"));
+	    if (i == 7) p.inventory.addItemStackToInventory(new ItemStack(Flowstone.mystFlowstone).setStackDisplayName("Drink Me!"));
+	    if (i == 6) p.inventory.addItemStackToInventory(new ItemStack(Flowstone.mystFlowstone).setStackDisplayName("Drink Me!"));
 	    
 	} else {
 	    super.onFoodEaten(par1ItemStack, w, p);

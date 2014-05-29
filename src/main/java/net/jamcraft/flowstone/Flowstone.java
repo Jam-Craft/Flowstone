@@ -33,8 +33,7 @@ public class Flowstone {
     public static Item unstableFlowstone;
     public static Item energizedFlowstone;
     public static Item explodingFlowstone;
-    public static Item opFlowstone;
-    public static Item trollFlowstone;
+    public static Item mystFlowstone;
     public static Item flowstoneExtractor;
 
     @Mod.EventHandler
@@ -43,8 +42,7 @@ public class Flowstone {
 	unstableFlowstone = new ItemFlowstoneMixture(5, 15, true).setUnlocalizedName("unstableFlowstone");
 	energizedFlowstone = new ItemEnergizedFlowstone(5, 15, true).setUnlocalizedName("energizedFlowstone");
 	explodingFlowstone = new ItemExplosiveFlowstone(5, 15, true).setUnlocalizedName("explodingFlowstone");
-	opFlowstone = new ItemOPFlowstone(8, 32, true).setUnlocalizedName("opFlowstone");
-	trollFlowstone = new ItemTrollFlowstone(8, 32, true).setUnlocalizedName("trollFlowstone");
+	mystFlowstone = new ItemOPFlowstone(8, 32, true).setUnlocalizedName("opFlowstone");
 	flowstoneExtractor = new ItemFlowstoneExtractor().setUnlocalizedName("flowstoneExtractor");
     }
 
@@ -53,9 +51,8 @@ public class Flowstone {
 	GameRegistry.registerItem(unstableFlowstone, "unstableFlowstone");
 	GameRegistry.registerItem(energizedFlowstone, "energizedFlowstone");
 	GameRegistry.registerItem(explodingFlowstone, "explodingFlowstone");
-	GameRegistry.registerItem(opFlowstone, "opFlowstone");
+	GameRegistry.registerItem(mystFlowstone, "mystFlowstone");
 	GameRegistry.registerItem(flowstoneExtractor, "flowstoneExtractor");
-	GameRegistry.registerItem(trollFlowstone, "trollFlowstone");
 	ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(unstableFlowstone), 1, 12, 75));
 	ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(unstableFlowstone), 1, 12, 75));
 	ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(unstableFlowstone), 1, 12, 75));
@@ -65,21 +62,16 @@ public class Flowstone {
 	ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(explodingFlowstone), 1, 5, 10));
 	ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_DISPENSER).addItem(new WeightedRandomChestContent(new ItemStack(explodingFlowstone), 1, 5, 10));
 	ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(explodingFlowstone), 1, 5, 10));
-	ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(opFlowstone), 2, 4, 1));
-	ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(opFlowstone), 2, 4, 1));
-	ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(opFlowstone), 2, 4, 1));
-	ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(opFlowstone), 2, 4, 1));
-	ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(opFlowstone), 2, 4, 1));
-	ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(trollFlowstone), 2, 4, 5));
-	ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(trollFlowstone), 2, 4, 1));
-	ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(trollFlowstone), 2, 4, 1));
-	ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(trollFlowstone), 2, 4, 1));
-	ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(trollFlowstone), 2, 4, 1));
+	ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(mystFlowstone), 2, 4, 5));
+	ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(mystFlowstone), 2, 4, 1));
+	ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(mystFlowstone), 2, 4, 1));
+	ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY).addItem(new WeightedRandomChestContent(new ItemStack(mystFlowstone), 2, 4, 1));
+	ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH).addItem(new WeightedRandomChestContent(new ItemStack(mystFlowstone), 2, 4, 1));
 	GameRegistry.addSmelting(Items.rotten_flesh, new ItemStack(Items.leather, 1), 5);
 	GameRegistry.addSmelting(explodingFlowstone, new ItemStack(Items.gunpowder, 5), 10);
-	GameRegistry.addSmelting(opFlowstone, new ItemStack(Items.golden_apple, 5, 1), 10);
+	GameRegistry.addSmelting(mystFlowstone, new ItemStack(Items.golden_apple, 5, 1), 10);
 	if (Loader.isModLoaded("lucky")) GameRegistry.addShapelessRecipe(new ItemStack(this.unstableFlowstone), new ItemStack(Items.glass_bottle), new ItemStack(GameRegistry.findItem("lucky", "lucky_block")));
-	GameRegistry.addShapelessRecipe(new ItemStack(this.flowstoneExtractor), new ItemStack(Items.glass_bottle), new ItemStack(Blocks.glass_pane));
+	GameRegistry.addShapelessRecipe(new ItemStack(this.flowstoneExtractor), new ItemStack(Items.glass_bottle), new ItemStack(Blocks.glass_pane), new ItemStack(Blocks.glass_pane), new ItemStack(Items.iron_ingot), new ItemStack(Items.stick));
 	
     }
 

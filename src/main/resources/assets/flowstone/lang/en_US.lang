@@ -1,6 +1,5 @@
 item.unstableFlowstone.name=Flowstone Mixture (Unstable)
 item.energizedFlowstone.name=Flowstone Mixture (Energized)
 item.explodingFlowstone.name=Flowstone Mixture (Explosive)
-item.opFlowstone.name=Flowstone Mixture (Mystery)
-item.trollFlowstone.name=Flowstone Mixture (Mystery)
+item.mystFlowstone.name=Flowstone Mixture (Mystery)
 item.flowstoneExtractor.name=Flowstone Extractor
