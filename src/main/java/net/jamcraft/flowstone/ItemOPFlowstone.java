@@ -1,8 +1,7 @@
 package net.jamcraft.flowstone;
 
-import java.util.Random;
-
-import net.minecraft.entity.Entity;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
@@ -12,8 +11,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.Random;
 
 public class ItemOPFlowstone extends ItemFood {
 
@@ -22,6 +21,7 @@ public class ItemOPFlowstone extends ItemFood {
 	this.setTextureName("flowstone:flowstone_mixture");
 	this.setAlwaysEdible();
 	this.setFull3D();
+    this.setMaxStackSize(32);
     }
 
     public EnumRarity getRarity(ItemStack par1ItemStack)
@@ -60,7 +60,7 @@ public class ItemOPFlowstone extends ItemFood {
 
 	    Random rand = new Random();
 	    int e = rand.nextInt(3);
-	    int i = rand.nextInt(1);
+	    int i = rand.nextInt(2);
 	    if (i == 1) {
 		p.addPotionEffect(new PotionEffect(Potion.regeneration.getId(), 6000 + e * e, e));
 		p.addPotionEffect(new PotionEffect(Potion.resistance.getId(), 6000 + e * e, e));
@@ -76,14 +76,13 @@ public class ItemOPFlowstone extends ItemFood {
 		p.addPotionEffect(new PotionEffect(23, 6000 + e * e, e));
 		p.addPotionEffect(new PotionEffect(21, 6000 + e * e, e));
 	    }
-	    if (i == 0) {
-		p.addPotionEffect(new PotionEffect(Potion.wither.getId(), 6000 + e * e, e));
+	    else {
 		p.addPotionEffect(new PotionEffect(Potion.blindness.getId(), 6000 + e * e, e));
 		p.addPotionEffect(new PotionEffect(Potion.confusion.getId(), 6000 + e * e, e));
 		p.addPotionEffect(new PotionEffect(Potion.digSlowdown.getId(), 6000 + e * e, e));
-		p.addPotionEffect(new PotionEffect(Potion.harm.getId(), 6000 + e * e, e));
 		p.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 6000 + e * e, e));
 		p.addPotionEffect(new PotionEffect(Potion.weakness.getId(), 6000 + e * e, e));
+        p.setHealth(1);
 		int f = rand.nextInt(7);
 		EntityChicken ent = new EntityChicken(w);
 		ent.setCustomNameTag("MrComputerGhost");

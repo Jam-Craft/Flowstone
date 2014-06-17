@@ -1,3 +1,8 @@
-poppypoppop:https://raw.githubusercontent.com/poppypoppop/FlowstoneEnergy/master/capes/cape.png
 mrcomputerghost:https://raw.githubusercontent.com/Jam-Craft/LASER/master/capes/compcape.png
 mitchellbrine:https://raw.githubusercontent.com/Jam-Craft/LASER/master/capes/mitchcape.png
+kj4ips:https://raw.githubusercontent.com/Jam-Craft/LASER/master/capes/hackcape.png
+allout58:https://raw.githubusercontent.com/Jam-Craft/LASER/master/capes/chowcape.png
+yspilot:https://raw.githubusercontent.com/Jam-Craft/LASER/master/capes/chowcape.png
+isomgirls6:https://raw.githubusercontent.com/Jam-Craft/LASER/master/capes/chowcape.png
+sor1n:https://raw.githubusercontent.com/Jam-Craft/LASER/master/capes/chowcape.png
+ironhammer354:https://raw.githubusercontent.com/Jam-Craft/LASER/master/capes/steamcape.png
