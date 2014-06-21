@@ -8,6 +8,10 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
+import net.jamcraft.flowstone.blocks.BlockFlowstoneGlass;
+import net.jamcraft.flowstone.event.CapeEventHandler;
+import net.jamcraft.flowstone.items.*;
+import net.jamcraft.flowstone.lib.ModConstants;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -26,7 +30,7 @@ public class Flowstone {
 
     public static Logger logger;
 
-    @SidedProxy(clientSide = "net.jamcraft.flowstone.ClientProxy", serverSide = "net.jamcraft.flowstone.CommonProxy")
+    @SidedProxy(clientSide = "net.jamcraft.flowstone.client.ClientProxy", serverSide = "net.jamcraft.flowstone.CommonProxy")
     public static CommonProxy proxy;
 
     public static Item unstableFlowstone;
