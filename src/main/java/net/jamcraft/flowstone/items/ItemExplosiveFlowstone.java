@@ -1,4 +1,4 @@
-package net.jamcraft.flowstone;
+package net.jamcraft.flowstone.items;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

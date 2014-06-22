@@ -1,9 +1,10 @@
 
-package net.jamcraft.flowstone;
+package net.jamcraft.flowstone.items;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.jamcraft.flowstone.Flowstone;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.item.EntityItem;

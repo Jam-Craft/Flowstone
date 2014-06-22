@@ -1,4 +1,4 @@
-package net.jamcraft.flowstone;
+package net.jamcraft.flowstone.items;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
