@@ -12,10 +12,11 @@ import net.jamcraft.flowstone.blocks.BlockFlowstoneGlass;
 import net.jamcraft.flowstone.event.CapeEventHandler;
 import net.jamcraft.flowstone.items.*;
 import net.jamcraft.flowstone.lib.ModConstants;
+import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
@@ -38,16 +39,18 @@ public class Flowstone {
     public static Item explodingFlowstone;
     public static Item mystFlowstone;
     public static Item flowstoneExtractor;
+    public static Item flowtion;
     public static Block flowstoneGlass;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
 	    logger = event.getModLog();
-	    unstableFlowstone = new ItemFlowstoneMixture(5, 15, true).setUnlocalizedName("unstableFlowstone");
-	    energizedFlowstone = new ItemEnergizedFlowstone(5, 15, true).setUnlocalizedName("energizedFlowstone");
-	    explodingFlowstone = new ItemExplosiveFlowstone(5, 15, true).setUnlocalizedName("explodingFlowstone");
-	    mystFlowstone = new ItemOPFlowstone(8, 32, true).setUnlocalizedName("opFlowstone");
+	    unstableFlowstone = new ItemFlowstoneMixture(10, 32, true).setUnlocalizedName("unstableFlowstone");
+	    energizedFlowstone = new ItemEnergizedFlowstone(10, 32, true).setUnlocalizedName("energizedFlowstone");
+	    explodingFlowstone = new ItemExplosiveFlowstone(10, 32, true).setUnlocalizedName("explodingFlowstone");
+	    mystFlowstone = new ItemOPFlowstone(12, 64, true).setUnlocalizedName("opFlowstone");
 	    flowstoneExtractor = new ItemFlowstoneExtractor().setUnlocalizedName("flowstoneExtractor");
+        flowtion = new ItemFlowtion(17, 64, true);
         flowstoneGlass = new BlockFlowstoneGlass().setResistance(6000000.0F).setLightLevel(1.0F).setStepSound(Block.soundTypeGlass);
     }
 
@@ -58,6 +61,7 @@ public class Flowstone {
 	    GameRegistry.registerItem(explodingFlowstone, "explodingFlowstone");
 	    GameRegistry.registerItem(mystFlowstone, "mystFlowstone");
 	    GameRegistry.registerItem(flowstoneExtractor, "flowstoneExtractor");
+        GameRegistry.registerItem(flowtion, "flowtion");
         GameRegistry.registerBlock(flowstoneGlass, "flowstoneGlass");
 	    ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(unstableFlowstone), 1, 12, 75));
         ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(unstableFlowstone), 1, 12, 75));
@@ -78,7 +82,9 @@ public class Flowstone {
 	    GameRegistry.addSmelting(mystFlowstone, new ItemStack(Items.golden_apple, 5, 1), 10);
 	    if (Loader.isModLoaded("lucky")) GameRegistry.addShapelessRecipe(new ItemStack(this.unstableFlowstone), new ItemStack(Items.glass_bottle), new ItemStack(GameRegistry.findItem("lucky", "lucky_block")));
 	    GameRegistry.addShapelessRecipe(new ItemStack(this.flowstoneExtractor), new ItemStack(Items.glass_bottle), new ItemStack(Blocks.glass_pane), new ItemStack(Blocks.glass_pane), new ItemStack(Items.iron_ingot), new ItemStack(Items.stick));
-	
+        GameRegistry.addShapelessRecipe(new ItemStack(this.flowstoneGlass), new ItemStack(this.unstableFlowstone), new ItemStack(Blocks.glass));
+        GameRegistry.addShapelessRecipe(new ItemStack(this.flowstoneGlass), new ItemStack(this.mystFlowstone), new ItemStack(Blocks.glass));
+        GameRegistry.addShapelessRecipe(new ItemStack(this.flowstoneGlass), new ItemStack(this.unstableFlowstone), new ItemStack(Blocks.glass));
     }
 
     @EventHandler
@@ -86,6 +92,16 @@ public class Flowstone {
 	    if (event.getSide() == Side.CLIENT && !Loader.isModLoaded("jccapes")) {
             MinecraftForge.EVENT_BUS.register(new CapeEventHandler());
         }
+    }
+
+    public static String getFMTexture() {
+        if (Minecraft.getMinecraft().thePlayer.getCommandSenderName().toLowerCase().equals("isomgirls6")) return "flowstone:fm_pink";
+        else return "flowstone:flowstone_mixture";
+    }
+
+    public static String getFGTexture() {
+        if (Minecraft.getMinecraft().thePlayer.getCommandSenderName().toLowerCase().equals("isomgirls6")) return "flowstone:fg_pink";
+        else return "flowstone:flowstone_glass";
     }
 
 }
