@@ -2,6 +2,7 @@ package net.jamcraft.flowstone.items;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.jamcraft.flowstone.Flowstone;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
@@ -18,7 +19,7 @@ public class ItemOPFlowstone extends ItemFood {
 
     public ItemOPFlowstone(int p_i45339_1_, float p_i45339_2_, boolean p_i45339_3_) {
 	super(p_i45339_1_, p_i45339_2_, p_i45339_3_);
-	this.setTextureName("flowstone:flowstone_mixture");
+	this.setTextureName(Flowstone.getFMTexture());
 	this.setAlwaysEdible();
 	this.setFull3D();
     this.setMaxStackSize(32);

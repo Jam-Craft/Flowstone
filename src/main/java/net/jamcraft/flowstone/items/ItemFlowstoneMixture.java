@@ -6,6 +6,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.jamcraft.flowstone.Flowstone;
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityTNTPrimed;
@@ -32,7 +33,7 @@ public class ItemFlowstoneMixture extends ItemFood {
     public ItemFlowstoneMixture(int par1, float par2, boolean par3) {
 	    super(par1, par2, par3);
         this.setMaxStackSize(32);
-	    this.setTextureName("flowstone:flowstone_mixture");
+	    this.setTextureName(Flowstone.getFMTexture());
 	    this.setAlwaysEdible();
     }
 
@@ -60,10 +61,12 @@ public class ItemFlowstoneMixture extends ItemFood {
             int i = rand.nextInt(50);
             int r = rand.nextInt(23);
             int s = rand.nextInt(15);
+            EntityWither wit = new EntityWither(w);
+            wit.setPosition(p.posX, p.posY, p.posZ);
 	        Flowstone.logger.log(Level.INFO, p.getCommandSenderName() + " Drank Flowtion " + i + ":" + e + ":" + r);
             if (i == 50) spawnExcessiveAmountOf(new ItemStack(Items.dye, e, s), r, p);
             if (i == 49) spawnExcessiveAmountOf(new ItemStack(Blocks.wool, e, s), r, p);
-            if (i == 48) Minecraft.getMinecraft().gameSettings.smoothCamera = true;
+            if (i == 48) w.spawnEntityInWorld(wit);
             if (i == 47) p.capabilities.allowFlying = true;
             if (i == 46) p.setPosition(p.getBedLocation(0).posX, p.getBedLocation(0).posY, p.getBedLocation(0).posZ);
 	        if (i == 45) worldinfo.setRaining(true);
@@ -84,7 +87,7 @@ public class ItemFlowstoneMixture extends ItemFood {
 	        if (i == 28) p.fallDistance = 19 + e;
 	        if (i == 27) p.addExhaustion(50F);
 	        if (i == 26) p.addExperienceLevel(50);
-	        if (i == 25) w.createExplosion(p, p.posX, p.posY, p.posX, 5, false);
+	        if (i == 25) w.setBlock((int)p.posX, (int)p.posY - 1, (int)p.posZ, Blocks.emerald_block);
 	        if (i == 24) w.addWeatherEffect(new EntityLightningBolt(w, p.posX, p.posY, p.posZ));
 	        if (i == 23) w.createExplosion(p, p.posX, p.posY, p.posX, 5, true);
 	        if (i == 22) p.setPosition(p.posX += e, p.posY += e, p.posZ += e);
@@ -108,7 +111,7 @@ public class ItemFlowstoneMixture extends ItemFood {
                 w.setBlockToAir((int) p.posX, (int) p.posY - 5, (int) p.posZ);
             }
 	        if (i == 11) Minecraft.getMinecraft().entityRenderer.activateNextShader();
-	        if (i == 10) p.addChatMessage(new ChatComponentText("The Conspiracy Attacks!"));
+	        if (i == 10) p.addChatMessage(new ChatComponentText("The KKaylium Conspiracy Attacks!"));
 	        if (i ==  9) p.inventory.addItemStackToInventory(new ItemStack(Items.potato, 64, 0).setStackDisplayName("PotatOS"));
 	        if (i ==  8) w.setBlock((int)p.posX, (int)p.posY, (int)p.posZ, Blocks.diamond_block);
 	        if (i ==  7) p.inventory.addItemStackToInventory(new ItemStack(Flowstone.mystFlowstone).setStackDisplayName("Drink Me!"));
