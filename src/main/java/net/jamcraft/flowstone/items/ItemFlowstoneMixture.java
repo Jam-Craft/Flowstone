@@ -11,6 +11,7 @@ import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.entity.monster.EntitySilverfish;
+import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -33,7 +34,7 @@ public class ItemFlowstoneMixture extends ItemFood {
     public ItemFlowstoneMixture(int par1, float par2, boolean par3) {
 	    super(par1, par2, par3);
         this.setMaxStackSize(32);
-	    this.setTextureName(Flowstone.getFMTexture());
+	    this.setTextureName("flowstone:flowstone_mixture");
 	    this.setAlwaysEdible();
     }
 
@@ -63,15 +64,18 @@ public class ItemFlowstoneMixture extends ItemFood {
             int s = rand.nextInt(15);
             EntityWither wit = new EntityWither(w);
             wit.setPosition(p.posX, p.posY, p.posZ);
+            EntitySlime kkc = new EntitySlime(w);
+            kkc.setPosition(p.posX, p.posY, p.posZ);
+            kkc.setCustomNameTag("kkaylium");
 	        Flowstone.logger.log(Level.INFO, p.getCommandSenderName() + " Drank Flowtion " + i + ":" + e + ":" + r);
             if (i == 50) spawnExcessiveAmountOf(new ItemStack(Items.dye, e, s), r, p);
             if (i == 49) spawnExcessiveAmountOf(new ItemStack(Blocks.wool, e, s), r, p);
             if (i == 48) w.spawnEntityInWorld(wit);
-            if (i == 47) p.capabilities.allowFlying = true;
+            if (i == 47) w.spawnEntityInWorld(wit);
             if (i == 46) p.setPosition(p.getBedLocation(0).posX, p.getBedLocation(0).posY, p.getBedLocation(0).posZ);
 	        if (i == 45) worldinfo.setRaining(true);
 	        if (i == 42) p.addToPlayerScore(p, e * e + e);
-	        if (i == 41) p.capabilities.setPlayerWalkSpeed(0.1F);
+	        if (i == 41) spawnExcessiveAmountOf(new ItemStack(Blocks.wool, e, s), r, p);
 	        if (i == 40 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(36, 6000, e));
 	        if (i == 39 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(35, 6000, e));
 	        if (i == 38 && Loader.isModLoaded("VirusMod")) p.addPotionEffect(new PotionEffect(34, 6000, e));
@@ -93,7 +97,7 @@ public class ItemFlowstoneMixture extends ItemFood {
 	        if (i == 22) p.setPosition(p.posX += e, p.posY += e, p.posZ += e);
 	        if (i == 21) p.addExperienceLevel(4);
 	        if (i == 20) p.extinguish();
-	        if (i == 19) p.capabilities.setPlayerWalkSpeed(0.01F);
+	        if (i == 19) w.spawnEntityInWorld(kkc);
 	        if (i == 18) p.cameraPitch = 99F;
 	        if (i == 17) w.difficultySetting = EnumDifficulty.HARD;
 	        if (i == 15) p.cameraYaw = 0F;
@@ -126,7 +130,7 @@ public class ItemFlowstoneMixture extends ItemFood {
                 w.spawnEntityInWorld(esf);
             }
             if (i ==  2) p.addExhaustion(e + r * e);
-            if (i ==  1) p.capabilities.setPlayerWalkSpeed(1.337F);
+            if (i ==  1) p.setInvisible(true);
             if (i ==  0) p.setFire(9999999);
             else if (r != 0) p.addPotionEffect(new PotionEffect(r, 6000, e));
 	    } else {

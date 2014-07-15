@@ -13,7 +13,6 @@ import net.jamcraft.flowstone.event.CapeEventHandler;
 import net.jamcraft.flowstone.items.*;
 import net.jamcraft.flowstone.lib.ModConstants;
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -50,7 +49,7 @@ public class Flowstone {
 	    explodingFlowstone = new ItemExplosiveFlowstone(10, 32, true).setUnlocalizedName("explodingFlowstone");
 	    mystFlowstone = new ItemOPFlowstone(12, 64, true).setUnlocalizedName("opFlowstone");
 	    flowstoneExtractor = new ItemFlowstoneExtractor().setUnlocalizedName("flowstoneExtractor");
-        flowtion = new ItemFlowtion(17, 64, true);
+        flowtion = new ItemFlowtion(10, 64, true);
         flowstoneGlass = new BlockFlowstoneGlass().setResistance(6000000.0F).setLightLevel(1.0F).setStepSound(Block.soundTypeGlass);
     }
 
@@ -92,16 +91,6 @@ public class Flowstone {
 	    if (event.getSide() == Side.CLIENT && !Loader.isModLoaded("jccapes")) {
             MinecraftForge.EVENT_BUS.register(new CapeEventHandler());
         }
-    }
-
-    public static String getFMTexture() {
-        if (Minecraft.getMinecraft().thePlayer.getCommandSenderName().toLowerCase().equals("isomgirls6")) return "flowstone:fm_pink";
-        else return "flowstone:flowstone_mixture";
-    }
-
-    public static String getFGTexture() {
-        if (Minecraft.getMinecraft().thePlayer.getCommandSenderName().toLowerCase().equals("isomgirls6")) return "flowstone:fg_pink";
-        else return "flowstone:flowstone_glass";
     }
 
 }
