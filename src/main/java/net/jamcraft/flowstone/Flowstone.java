@@ -81,9 +81,14 @@ public class Flowstone {
 	    GameRegistry.addSmelting(mystFlowstone, new ItemStack(Items.golden_apple, 5, 1), 10);
 	    if (Loader.isModLoaded("lucky")) GameRegistry.addShapelessRecipe(new ItemStack(this.unstableFlowstone), new ItemStack(Items.glass_bottle), new ItemStack(GameRegistry.findItem("lucky", "lucky_block")));
 	    GameRegistry.addShapelessRecipe(new ItemStack(this.flowstoneExtractor), new ItemStack(Items.glass_bottle), new ItemStack(Blocks.glass_pane), new ItemStack(Blocks.glass_pane), new ItemStack(Items.iron_ingot), new ItemStack(Items.stick));
-        GameRegistry.addShapelessRecipe(new ItemStack(this.flowstoneGlass), new ItemStack(this.unstableFlowstone), new ItemStack(Blocks.glass));
-        GameRegistry.addShapelessRecipe(new ItemStack(this.flowstoneGlass), new ItemStack(this.mystFlowstone), new ItemStack(Blocks.glass));
-        GameRegistry.addShapelessRecipe(new ItemStack(this.flowstoneGlass), new ItemStack(this.unstableFlowstone), new ItemStack(Blocks.glass));
+        GameRegistry.addShapelessRecipe(new ItemStack(this.flowstoneGlass, 8), new ItemStack(this.unstableFlowstone), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass));
+        GameRegistry.addShapelessRecipe(new ItemStack(this.flowstoneGlass, 8), new ItemStack(this.mystFlowstone), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass));
+        GameRegistry.addShapelessRecipe(new ItemStack(this.flowstoneGlass, 8), new ItemStack(this.energizedFlowstone), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass));
+        GameRegistry.addShapelessRecipe(new ItemStack(this.flowstoneGlass, 8), new ItemStack(this.explodingFlowstone), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass));
+        GameRegistry.addShapelessRecipe(new ItemStack(this.unstableFlowstone, 2), new ItemStack(this.unstableFlowstone), new ItemStack(Items.glowstone_dust), new ItemStack(Items.gold_nugget));
+        GameRegistry.addShapelessRecipe(new ItemStack(this.explodingFlowstone, 2), new ItemStack(this.explodingFlowstone), new ItemStack(Items.glowstone_dust), new ItemStack(Items.gold_nugget));
+        GameRegistry.addShapelessRecipe(new ItemStack(this.mystFlowstone, 2), new ItemStack(this.mystFlowstone), new ItemStack(Items.glowstone_dust), new ItemStack(Items.gold_nugget));
+        GameRegistry.addShapelessRecipe(new ItemStack(this.energizedFlowstone, 2), new ItemStack(this.energizedFlowstone), new ItemStack(Items.glowstone_dust), new ItemStack(Items.gold_nugget));
     }
 
     @EventHandler

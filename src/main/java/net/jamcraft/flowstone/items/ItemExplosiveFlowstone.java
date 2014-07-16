@@ -15,7 +15,7 @@ public class ItemExplosiveFlowstone extends ItemFood {
 
     public ItemExplosiveFlowstone(int p_i45339_1_, float p_i45339_2_, boolean p_i45339_3_) {
 	super(p_i45339_1_, p_i45339_2_, p_i45339_3_);
-	this.setTextureName("flowstone:flowstone_mitxutre");
+	this.setTextureName("flowstone:flowstone_mixture");
     this.setMaxStackSize(32);
 	this.setAlwaysEdible();
     }
