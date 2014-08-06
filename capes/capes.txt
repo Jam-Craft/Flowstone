@@ -6,3 +6,4 @@ yspilot:https://raw.githubusercontent.com/Jam-Craft/LASER/master/capes/chowcape.
 isomgirls6:https://raw.githubusercontent.com/Jam-Craft/LASER/master/capes/kkcape.png
 sor1n:https://raw.githubusercontent.com/Jam-Craft/LASER/master/capes/chowcape.png
 ironhammer354:https://raw.githubusercontent.com/Jam-Craft/LASER/master/capes/steamcape.png
+superbartje12:https://raw.githubusercontent.com/Jam-Craft/LASER/master/capes/kkcape.png

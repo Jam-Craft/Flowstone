@@ -13,7 +13,6 @@ import net.jamcraft.flowstone.event.CapeEventHandler;
 import net.jamcraft.flowstone.items.*;
 import net.jamcraft.flowstone.lib.ModConstants;
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -50,7 +49,7 @@ public class Flowstone {
 	    explodingFlowstone = new ItemExplosiveFlowstone(10, 32, true).setUnlocalizedName("explodingFlowstone");
 	    mystFlowstone = new ItemOPFlowstone(12, 64, true).setUnlocalizedName("opFlowstone");
 	    flowstoneExtractor = new ItemFlowstoneExtractor().setUnlocalizedName("flowstoneExtractor");
-        flowtion = new ItemFlowtion(17, 64, true);
+        flowtion = new ItemFlowtion(10, 64, true);
         flowstoneGlass = new BlockFlowstoneGlass().setResistance(6000000.0F).setLightLevel(1.0F).setStepSound(Block.soundTypeGlass);
     }
 
@@ -82,9 +81,14 @@ public class Flowstone {
 	    GameRegistry.addSmelting(mystFlowstone, new ItemStack(Items.golden_apple, 5, 1), 10);
 	    if (Loader.isModLoaded("lucky")) GameRegistry.addShapelessRecipe(new ItemStack(this.unstableFlowstone), new ItemStack(Items.glass_bottle), new ItemStack(GameRegistry.findItem("lucky", "lucky_block")));
 	    GameRegistry.addShapelessRecipe(new ItemStack(this.flowstoneExtractor), new ItemStack(Items.glass_bottle), new ItemStack(Blocks.glass_pane), new ItemStack(Blocks.glass_pane), new ItemStack(Items.iron_ingot), new ItemStack(Items.stick));
-        GameRegistry.addShapelessRecipe(new ItemStack(this.flowstoneGlass), new ItemStack(this.unstableFlowstone), new ItemStack(Blocks.glass));
-        GameRegistry.addShapelessRecipe(new ItemStack(this.flowstoneGlass), new ItemStack(this.mystFlowstone), new ItemStack(Blocks.glass));
-        GameRegistry.addShapelessRecipe(new ItemStack(this.flowstoneGlass), new ItemStack(this.unstableFlowstone), new ItemStack(Blocks.glass));
+        GameRegistry.addShapelessRecipe(new ItemStack(this.flowstoneGlass, 8), new ItemStack(this.unstableFlowstone), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass));
+        GameRegistry.addShapelessRecipe(new ItemStack(this.flowstoneGlass, 8), new ItemStack(this.mystFlowstone), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass));
+        GameRegistry.addShapelessRecipe(new ItemStack(this.flowstoneGlass, 8), new ItemStack(this.energizedFlowstone), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass));
+        GameRegistry.addShapelessRecipe(new ItemStack(this.flowstoneGlass, 8), new ItemStack(this.explodingFlowstone), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass), new ItemStack(Blocks.glass));
+        GameRegistry.addShapelessRecipe(new ItemStack(this.unstableFlowstone, 2), new ItemStack(this.unstableFlowstone), new ItemStack(Items.glowstone_dust), new ItemStack(Items.gold_nugget));
+        GameRegistry.addShapelessRecipe(new ItemStack(this.explodingFlowstone, 2), new ItemStack(this.explodingFlowstone), new ItemStack(Items.glowstone_dust), new ItemStack(Items.gold_nugget));
+        GameRegistry.addShapelessRecipe(new ItemStack(this.mystFlowstone, 2), new ItemStack(this.mystFlowstone), new ItemStack(Items.glowstone_dust), new ItemStack(Items.gold_nugget));
+        GameRegistry.addShapelessRecipe(new ItemStack(this.energizedFlowstone, 2), new ItemStack(this.energizedFlowstone), new ItemStack(Items.glowstone_dust), new ItemStack(Items.gold_nugget));
     }
 
     @EventHandler
@@ -92,16 +96,6 @@ public class Flowstone {
 	    if (event.getSide() == Side.CLIENT && !Loader.isModLoaded("jccapes")) {
             MinecraftForge.EVENT_BUS.register(new CapeEventHandler());
         }
-    }
-
-    public static String getFMTexture() {
-        if (Minecraft.getMinecraft().thePlayer.getCommandSenderName().toLowerCase().equals("isomgirls6")) return "flowstone:fm_pink";
-        else return "flowstone:flowstone_mixture";
-    }
-
-    public static String getFGTexture() {
-        if (Minecraft.getMinecraft().thePlayer.getCommandSenderName().toLowerCase().equals("isomgirls6")) return "flowstone:fg_pink";
-        else return "flowstone:flowstone_glass";
     }
 
 }

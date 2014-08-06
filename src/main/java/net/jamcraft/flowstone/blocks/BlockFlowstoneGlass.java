@@ -1,6 +1,5 @@
 package net.jamcraft.flowstone.blocks;
 
-import net.jamcraft.flowstone.Flowstone;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,7 +9,7 @@ public class BlockFlowstoneGlass extends Block {
     public BlockFlowstoneGlass() {
         super(Material.redstoneLight);
         setBlockName("flowstoneGlass");
-        setBlockTextureName(Flowstone.getFGTexture());
+        setBlockTextureName("flowstone:flowstone_glass");
         setHardness(0.197348526F);
     }
 

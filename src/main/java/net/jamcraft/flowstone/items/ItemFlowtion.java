@@ -1,6 +1,5 @@
 package net.jamcraft.flowstone.items;
 
-import net.jamcraft.flowstone.Flowstone;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
@@ -18,7 +17,7 @@ public class ItemFlowtion extends ItemFood {
         super(par1, par2, par3);
         this.setUnlocalizedName("flowtion");
         this.setMaxStackSize(16);
-        this.setTextureName(Flowstone.getFMTexture());
+        this.setTextureName("flowstone:fm_pink");
         this.setAlwaysEdible();
     }
 
